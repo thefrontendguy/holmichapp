@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import MapRender from './components/MapRender';
-import MapAddressInput from './components/MapAddressInput';
+import MapRender from './MapRender';
+import MapAddressInput from './MapAddressInput';
 
-import Translations from './components/Translations';
+import Translations from './Translations';
 
-class App extends Component {
+class Map extends Component {
   constructor() {
     super();
     this.state = {
       origin: null,
       destination: null,
-      lang: "fr"
+      lang: "en_EN"
     }
   }
   updateOrigin = (latLng) => {
@@ -33,4 +33,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Map;
