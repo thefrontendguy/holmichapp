@@ -3,3 +3,32 @@ body {
   margin: 0;
 }
   
+.map-container {
+  //display: flex;
+
+  & .map-addresses-input {
+    display: flex;
+    //flex-direction: column;
+    & form.map-address-input {
+      position: relative;
+      box-sizing: border-box;
+      flex: 1;
+      
+      z-index: 1;
+      & button {
+        display: none;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  & .map {
+    height: 100vh;
+
+    & .map-layout {
+      height: 100%; 
+      position: relative; 
+      overflow: hidden;
+    }
+  }
+}
