@@ -17,7 +17,6 @@ const originLng = null;
 const destinationLat = null;
 const destinationLng = null;
 
-
 const Map = compose(
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places",
@@ -43,7 +42,7 @@ const Map = compose(
           });
         } else {
           //console.error(`error fetching directions ${result}`);
-          alert(`You can not go there with the car. Buy a rocket.`);
+          console.error(`You can not go there with the car. Buy a rocket.`);
         }
       });
     },
@@ -62,7 +61,8 @@ const Map = compose(
             directions: result,
           });
         } else {
-          console.error(`error fetching directions ${result}`);
+          //console.error(`error fetching directions ${result}`);
+          console.error("You can not go there by car. Buy a rocket.");
         }
       });
     }
