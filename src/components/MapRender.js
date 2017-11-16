@@ -43,7 +43,7 @@ const Map = compose(
           });
         } else {
           //console.error(`error fetching directions ${result}`);
-          alert(`You can not go there with the car. Buy a rocket.`);
+          console.error(`You can not go there with the car. Buy a rocket.`);
         }
       });
     },
@@ -62,7 +62,8 @@ const Map = compose(
             directions: result,
           });
         } else {
-          console.error(`error fetching directions ${result}`);
+          //console.error(`error fetching directions ${result}`);
+          console.error("You can not go there by car. Buy a rocket.");
         }
       });
     }
