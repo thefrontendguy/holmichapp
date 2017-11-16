@@ -6,7 +6,7 @@ db.startDB();
 var User = mongoose.model("User", schema);
 
 /*User.create({
-    username: "rad",
+    username: "cahit",
     password: "password",
     email: "email@this.address"
 }).then(user => {

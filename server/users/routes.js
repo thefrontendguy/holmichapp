@@ -1,16 +1,43 @@
 var mongoose = require("mongoose");
-var Router = require("express").Router();
+var router = require("express").Router();
 var User = require("./model");
 
-Router.get("/:user", (req, res) => {
-    User.findOne({ username: req.params.user }, (err, user) => {
+// C //
+router.post("/create", (req, res) => {
+    user = req.body;
+    User.create(user)
+        .then(user => { res.json(user); })
+        .catch(err => { res.json(err); })
+});
+
+// R //
+router.get("/:id", (req, res) => {
+    User.findOne({ _id: req.params.id }, (err, user) => {
         if (err) {
-            console.log(err);
-            res.redirect("/");
+            res.json(err);
         } else {
             res.json(user);
         }
     })
 })
 
-module.exports = Router;
+// U //
+router.post("/:id/update", (req, res) => {
+    User.update({ _id: req.params.id }, { $set: req.body }, (err, user) => {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(user);
+        }
+    })
+})
+
+// D //
+router.delete("/:id/delete", (req, res) => {
+    User.remove({ _id: req.params.id }, (err) => {
+        if (err) res.json(err);
+        else res.status(200).json({ "status": "success" });
+    })
+})
+
+module.exports = router;

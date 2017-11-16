@@ -4,6 +4,10 @@ var userRoutes = require("./users");
 var compress = require('compression');
 app.use(compress());
 
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -21,7 +25,7 @@ app.use("/user/", userRoutes);
 // set up error middleware
 app.use(function (req, res) {
     res.statusCode = 404;
-    res.end("Page doesn't exist");
+    res.send("Page doesn't exist");
 });
 
 // set up server
