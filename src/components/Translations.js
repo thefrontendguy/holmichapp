@@ -7,7 +7,7 @@ const Translations = {
         "APPNAME" : "HolMichApp",
         "GREETING" : "Hallo, wie geht es dir?"
     },
-     fr: {
+     fr_FR: {
         "APPNAME" : "Frend App",
         "GREETING" : "french fries french"
     }

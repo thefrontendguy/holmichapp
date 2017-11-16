@@ -4,30 +4,51 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 class MapAddressInput extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { address: '' }
-    this.onChange = (address) => this.setState({ address })
+    this.state = { 
+      origin: '',
+      destination: '' 
+    }
+  }
+
+  changeOriginAddress = (address) => {
+    this.setState({origin: address});
+  }
+  changeDestinationAddress = (address) => {
+    this.setState({destination: address});
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault()
 
-    geocodeByAddress(this.state.address)
+    geocodeByAddress(this.state.origin)
       .then(results => getLatLng(results[0]))
       .then(latLng => {
-        this.props.update(latLng);
+        this.props.origin(latLng);
+        console.log('Success', latLng)})
+      .catch(error => console.error('Error', error))
+
+    geocodeByAddress(this.state.destination)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => {
+        this.props.destination(latLng);
         console.log('Success', latLng)})
       .catch(error => console.error('Error', error))
   }
 
   render() {
-    const inputProps = {
-      value: this.state.address,
-      onChange: this.onChange,
+    const inputPropsOrigin = {
+      value: this.state.origin,
+      onChange: this.changeOriginAddress,
+    }
+    const inputPropsDestination = {
+      value: this.state.destination,
+      onChange: this.changeDestinationAddress,
     }
 
     return (
       <form className="map-address-input" onSubmit={this.handleFormSubmit}>
-        <PlacesAutocomplete inputProps={inputProps} />
+        <PlacesAutocomplete inputProps={inputPropsOrigin} />
+        <PlacesAutocomplete inputProps={inputPropsDestination} />
          <button type="submit">Submit</button> 
       </form>
     )

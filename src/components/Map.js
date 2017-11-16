@@ -24,8 +24,7 @@ class Map extends Component {
     return (
       <div className="map-complete">
         <div className='map-addresses-input'>
-            <MapAddressInput update={this.updateOrigin} />
-            <MapAddressInput update={this.updateDestination} />
+            <MapAddressInput origin={this.updateOrigin} destination={this.updateDestination} />
         </div>
         <MapRender origin={this.state.origin} destination={this.state.destination} className="map" />
       </div>
