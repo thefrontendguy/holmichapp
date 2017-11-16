@@ -2,33 +2,57 @@ body {
   padding: 0;
   margin: 0;
 }
-  
-.map-container {
-  //display: flex;
+
+.map-complete {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
 
   & .map-addresses-input {
+    position: absolute;
+    top: 10px;
+    left: 2%;
+    
+    width: 80%;
     display: flex;
-    //flex-direction: column;
+
     & form.map-address-input {
       position: relative;
-      box-sizing: border-box;
+      box-sizing: border-box;  
       flex: 1;
       
       z-index: 1;
       & button {
-        display: none;
+        //display: none;
         margin-bottom: 5px;
+      }
+      & #PlacesAutocomplete__root {
+        background: red;
+        display: flex;
+
+        & input {
+          display: initial;
+          width: initial;
+          padding: initial;
+        }
       }
     }
   }
 
   & .map {
+    margin: 0;
+    padding: 0;
     height: 100vh;
+    width: 100vw;
 
     & .map-layout {
       height: 100%; 
       position: relative; 
       overflow: hidden;
     }
+  }
+  & .map-element {
+    height: 100%;
   }
 }

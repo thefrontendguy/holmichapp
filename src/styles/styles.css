@@ -2,20 +2,42 @@ body {
   padding: 0;
   margin: 0; }
 
-.map-container .map-addresses-input {
-  display: flex; }
-  .map-container .map-addresses-input form.map-address-input {
-    position: relative;
-    box-sizing: border-box;
-    flex: 1;
-    z-index: 1; }
-    .map-container .map-addresses-input form.map-address-input button {
-      display: none;
-      margin-bottom: 5px; }
+.map-complete {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative; }
+  .map-complete .map-addresses-input {
+    position: absolute;
+    top: 10px;
+    left: 2%;
+    width: 80%;
+    display: flex; }
+    .map-complete .map-addresses-input form.map-address-input {
+      position: relative;
+      box-sizing: border-box;
+      flex: 1;
+      z-index: 1; }
+      .map-complete .map-addresses-input form.map-address-input button {
+        margin-bottom: 5px; }
+      .map-complete .map-addresses-input form.map-address-input #PlacesAutocomplete__root {
+        background: red;
+        display: flex; }
+        .map-complete .map-addresses-input form.map-address-input #PlacesAutocomplete__root input {
+          display: initial;
+          width: initial;
+          padding: initial; }
+  .map-complete .map {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw; }
+    .map-complete .map .map-layout {
+      height: 100%;
+      position: relative;
+      overflow: hidden; }
+  .map-complete .map-element {
+    height: 100%; }
 
-.map-container .map {
-  height: 100vh; }
-  .map-container .map .map-layout {
-    height: 100%;
-    position: relative;
-    overflow: hidden; }
+.gmnoprint {
+  display: none; }
