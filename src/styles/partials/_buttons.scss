@@ -4,8 +4,15 @@
     border: none;
     padding: 15px;
 }
+@mixin pointer {
+    cursor: pointer;
+}
 .button.submit {
     background: $col3;
     color: $col3_c;
     @include button;
+
+    &:hover {
+        @include pointer;
+    }
 }
