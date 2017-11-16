@@ -23,8 +23,8 @@ class Map extends Component {
     console.log(Translations[this.state.lang].APPNAME)
     return (
       <div className="map-complete">
-        <div className='map-addresses-input'>
-            <MapAddressInput origin={this.updateOrigin} destination={this.updateDestination} />
+        <div className="map-infos">
+          <MapAddressInput origin={this.updateOrigin} destination={this.updateDestination} />
         </div>
         <MapRender origin={this.state.origin} destination={this.state.destination} className="map" />
       </div>

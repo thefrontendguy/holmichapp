@@ -47,9 +47,9 @@ class MapAddressInput extends React.Component {
 
     return (
       <form className="map-address-input" onSubmit={this.handleFormSubmit}>
-        <PlacesAutocomplete inputProps={inputPropsOrigin} />
-        <PlacesAutocomplete inputProps={inputPropsDestination} />
-         <button type="submit">Submit</button> 
+        <PlacesAutocomplete className="map-input-container" inputProps={inputPropsOrigin} />
+        <PlacesAutocomplete className="map-input-container" inputProps={inputPropsDestination} />
+         <button className="button submit" type="submit">Submit</button> 
       </form>
     )
   }

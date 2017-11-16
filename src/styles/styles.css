@@ -2,42 +2,57 @@ body {
   padding: 0;
   margin: 0; }
 
-.map-complete {
+#app {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  position: relative; }
-  .map-complete .map-addresses-input {
-    position: absolute;
-    top: 10px;
-    left: 2%;
-    width: 80%;
-    display: flex; }
-    .map-complete .map-addresses-input form.map-address-input {
-      position: relative;
-      box-sizing: border-box;
-      flex: 1;
-      z-index: 1; }
-      .map-complete .map-addresses-input form.map-address-input button {
-        margin-bottom: 5px; }
-      .map-complete .map-addresses-input form.map-address-input #PlacesAutocomplete__root {
-        background: red;
+  height: 100vh; }
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background: #A71DA2;
+  color: #D8E1E9;
+  font-size: 20px; }
+
+.map-complete {
+  flex: 1;
+  display: flex; }
+  .map-complete .map-infos {
+    width: 300px;
+    padding: 20px; }
+    .map-complete .map-infos .map-address-input {
+      display: flex;
+      flex-direction: column; }
+      .map-complete .map-infos .map-address-input #PlacesAutocomplete__root {
+        flex: 1;
         display: flex; }
-        .map-complete .map-addresses-input form.map-address-input #PlacesAutocomplete__root input {
-          display: initial;
-          width: initial;
-          padding: initial; }
+        .map-complete .map-infos .map-address-input #PlacesAutocomplete__root input {
+          flex: 1;
+          position: initial !important;
+          width: initial !important; }
+        .map-complete .map-infos .map-address-input #PlacesAutocomplete__root button {
+          padding: 10px !important; }
   .map-complete .map {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    width: 100vw; }
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    display: flex; }
     .map-complete .map .map-layout {
       height: 100%;
       position: relative;
       overflow: hidden; }
   .map-complete .map-element {
-    height: 100%; }
+    flex: 1; }
 
 .gmnoprint {
   display: none; }
+
+.button.submit {
+  background: #A71DA2;
+  color: #D8E1E9;
+  border: none;
+  padding: 15px; }
+
+#PlacesAutocomplete__root div#PlacesAutocomplete__autocomplete-container {
+  background-color: red !important; }

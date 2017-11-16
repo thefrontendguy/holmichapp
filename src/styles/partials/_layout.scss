@@ -1,50 +1,67 @@
+@import './_colors.scss';
+
+$font_sm: 12px;
+$font_m: 16px;
+$font_l: 20px;
+$font_xl: 24px;
+
 body {
   padding: 0;
   margin: 0;
 }
 
-.map-complete {
+#app {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  position: relative;
 
-  & .map-addresses-input {
-    position: absolute;
-    top: 10px;
-    left: 2%;
+  height: 100vh;
+}
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background: $col3;
+  color: $col3_c;
+
+  font-size: $font_l;
+}
+
+.map-complete {
+  flex: 1;
+
+  display: flex;
+  //flex-direction: column;
+
+  & .map-infos {
+    width: 300px;
+    padding: 20px;
+
+    & .map-address-input {
+      display: flex;
+      flex-direction: column;
     
-    width: 80%;
-    display: flex;
-
-    & form.map-address-input {
-      position: relative;
-      box-sizing: border-box;  
-      flex: 1;
-      
-      z-index: 1;
-      & button {
-        //display: none;
-        margin-bottom: 5px;
-      }
       & #PlacesAutocomplete__root {
-        background: red;
-        display: flex;
+        flex: 1;
 
+        display: flex;
+        
         & input {
-          display: initial;
-          width: initial;
-          padding: initial;
+          flex: 1;
+          position: initial !important;
+          width: initial !important;
+        }
+        & button {
+          padding: 10px !important;
         }
       }
     }
   }
-
   & .map {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
+    flex: 1;
+
+    display: flex;
 
     & .map-layout {
       height: 100%; 
@@ -53,6 +70,6 @@ body {
     }
   }
   & .map-element {
-    height: 100%;
+    flex: 1;
   }
 }
