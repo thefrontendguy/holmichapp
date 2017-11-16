@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Translations = {
      en_EN: {
         "APPNAME" : "Some Name",
