@@ -25,6 +25,16 @@ var schema = {
             required: false
         }
     }],
+    messages: [{
+        id: {
+            type: String,
+            required: true
+        },
+        user: { // _id
+            type: String,
+            required: true
+        }
+    }],
     home: {
         lat: {
             type: Number,

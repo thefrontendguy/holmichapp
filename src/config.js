@@ -10,5 +10,5 @@ export const localization = {
     units: " km"
 }
 
-localization.language = language ?language : localization.language;
-localization.region = region ?region : localization.region;
+localization.language = language ? language : localization.language;
+localization.region = region ? region : localization.region;
