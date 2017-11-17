@@ -5,8 +5,8 @@ var region = lang.substring(3, 5);
 
 export const localization = {
     language: "&language=en",
-    region: "&region=EN",
-    lang: "en_EN",
+    region: "&region=GB",
+    lang: "en-US",
     units: " km"
 }
 
