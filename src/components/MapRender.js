@@ -48,7 +48,7 @@ const Map = compose(
           this.setState({
             directions: result,
           });
-          console.log(result);
+          //console.log(result);
         } else {
           //console.error(`error fetching directions ${result}`);
           console.error(`You can not go there with the car. Buy a rocket.`);
@@ -58,19 +58,20 @@ const Map = compose(
     // update the map, when props change
     componentWillReceiveProps(newProps) {
       const DirectionsService = new google.maps.DirectionsService();
-      console.log(newProps);
+      //console.log(newProps);
 
       DirectionsService.route({
         origin: new google.maps.LatLng(newProps.origin ? newProps.origin.lat : originLat, newProps.origin ? newProps.origin.lng : originLng),
         destination: new google.maps.LatLng(newProps.destination ? newProps.destination.lat : destinationLat, newProps.destination ? newProps.destination.lng : destinationLng),
         travelMode: google.maps.TravelMode.DRIVING,
       }, (result, status) => {
-        console.log(result.routes['0'].legs['0'].distance);
+        //console.log(result.routes['0'].legs['0'].distance);
         if (status === google.maps.DirectionsStatus.OK) {
           this.setState({
-            directions: result,
+            directions: result
           });
-          console.log(result);
+          this.props.distAndDur(result);
+          console.log(this.props);
         } else {
           //console.error(`error fetching directions ${result}`);
           console.error("You can not go there by car. Buy a rocket.");
@@ -86,6 +87,6 @@ const Map = compose(
     {props.directions && <DirectionsRenderer directions={props.directions} />}
     </GoogleMap>
   );
-  console.log(this.props);
+  //console.log(this.props);
 
 export default Map;

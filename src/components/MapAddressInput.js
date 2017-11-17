@@ -8,7 +8,7 @@ class MapAddressInput extends React.Component {
     super(props)
     this.state = { 
       origin: '',
-      destination: '' 
+      destination: ''
     }
   }
 
@@ -62,6 +62,17 @@ console.log(this.props);
         />
         {this.props.lang.SUBMIT_ADDRESSES}
         </button> 
+        {(this.props.distAndDur !== null) 
+          ? <div> 
+              <p>
+              {this.props.lang.DISTANCE} {this.props.distAndDur.routes[0].legs[0].distance.text}
+              </p>
+              <p>
+              {this.props.lang.ESTIMATED_DURATION} {this.props.distAndDur.routes[0].legs[0].duration.text}
+              </p>
+            </div> 
+          : <div>  <p> {this.props.lang.FILL_FORM}  </p> </div>
+           }
       </form>
     )
   }

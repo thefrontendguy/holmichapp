@@ -7,8 +7,12 @@ const Translations = {
         "REGISTER": "Register",
         "MAPS_INFO_TITLE": "Please add origin and destination addresses, to calculate the route",
         "FROM": "From",
+        "FILL_FORM": "Please fill the form, to see distance and duration.",
         "DESTINATION": "Destination",
-        "SUBMIT_ADDRESSES": "Calculate the Route"
+        "SUBMIT_ADDRESSES": "Calculate the Route",
+        "DISTANCE": "The distance is: ",
+        "DURATION": "The duration is: ",
+        "ESTIMATED_DURATION": "Estimated duration: "
     },
     de_DE: {
         "APPNAME" : "HolMichApp",
@@ -18,8 +22,12 @@ const Translations = {
         "REGISTER": "Registrieren",
         "MAPS_INFO_TITLE": "Please add origin and destination addresses, to calculate the route",
         "FROM": "Von",
+        "FILL_FORM": "Bitte fülle die Felder aus, um die Entfernung und die Fahrtdauer anzuzeigen.",
         "DESTINATION": "Nach",
-        "SUBMIT_ADDRESSES": "Route berechnen"
+        "SUBMIT_ADDRESSES": "Route berechnen",
+        "DISTANCE": "Die Entfernung beträgt: ",
+        "DURATION": "Die Fahrtdauer beträgt: ",
+        "ESTIMATED_DURATION": "Geschätzte Fahrtdauer: "
     }
 }
 
