@@ -8,11 +8,7 @@ import { localization } from './config';
 
 class App extends React.Component {
     state = {
-        lang: ''
-    }
-    componentWillMount = () => {
-        const lang = localization.lang.substring(0,2);
-        this.setState({lang: lang})
+        lang: localization.language
     }
     render() {
         const translation = Translations[this.state.lang];
