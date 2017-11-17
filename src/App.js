@@ -20,11 +20,10 @@ class App extends React.Component {
         return (
             <div id='app'>
                 <Header lang={translation} />
-                <Login />
-                </div>
+                <Map lang={translation} />
+            </div>
             )
         }
     } 
-    //<Map lang={translation} />
 
 export default App;
