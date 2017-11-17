@@ -1,5 +1,5 @@
 const Translations = {
-     en_EN: {
+     "en": {
         "APPNAME" : "Some Name",
         "SLOGAN" : "the best app ever",
         "GREETING" : "Hello, how are you?",
@@ -15,7 +15,7 @@ const Translations = {
         "ESTIMATED_DURATION": "Estimated duration: ",
         "ROUTE_IMPOSSIBLE": "It is not possible to go there by car"
     },
-    de_DE: {
+    "de": {
         "APPNAME" : "HolMichApp",
         "SLOGAN" : "Die Abhol-App",
         "GREETING" : "Hallo, wie geht es dir?",
