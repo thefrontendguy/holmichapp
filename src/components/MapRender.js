@@ -1,5 +1,6 @@
 /*global google*/
 import React from 'react';
+import { localization } from '../config';
 
 const { compose, withProps, lifecycle } = require("recompose");
 const {
@@ -25,11 +26,6 @@ const originLng = -87.6512600;
 // DESTINATION
 const destinationLat = 41.8525800;
 const destinationLng = -87.6514100; */
-var localization =  {
-  language: "&language=en",
-  region: "&region=GB",
-  lang: "en_EN"
-}
 const Map = compose(
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places" + localization.language + localization.region,

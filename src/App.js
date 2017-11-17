@@ -3,10 +3,11 @@ import Header from './components/Header';
 import Map from './components/Map';
 
 import Translations from './components/Translations';
+import { localization } from './config';
 
 class App extends React.Component {
     state = {
-        lang: "en_EN"
+        lang: localization.lang
     }
     render() {
         const translation = Translations[this.state.lang];

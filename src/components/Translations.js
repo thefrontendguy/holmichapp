@@ -21,7 +21,7 @@ const Translations = {
         "GREETING" : "Hallo, wie geht es dir?",
         "LOGIN": "Einloggen",
         "REGISTER": "Registrieren",
-        "MAPS_INFO_TITLE": "Please add origin and destination addresses, to calculate the route",
+        "MAPS_INFO_TITLE": "Bitte gib den Startpunk und das Ziel deiner gewünschten Route an",
         "FROM": "Von",
         "FILL_FORM": "Bitte fülle die Felder aus, um die Entfernung und die Fahrtdauer anzuzeigen.",
         "DESTINATION": "Nach",

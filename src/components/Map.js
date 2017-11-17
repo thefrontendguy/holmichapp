@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import MapRender from './MapRender';
 import MapAddressInput from './MapAddressInput';
 
+import { localization } from '../config';
+
 class Map extends Component {
   constructor() {
     super();
@@ -9,12 +11,7 @@ class Map extends Component {
       origin: null,
       destination: null,
       distAndDur: null,
-      unit: " km",
-      localization: {
-        language: "&language=en",
-        region: "&region=GB",
-        lang: "en_EN"
-      }
+      localization: localization
     }
   }
   updateOrigin = (latLng) => {
@@ -37,7 +34,7 @@ class Map extends Component {
       <div className="map-complete">
         <div className="map-infos">
           <div className="title">{this.props.lang.MAPS_INFO_TITLE}</div>
-          <MapAddressInput lang={this.props.lang} origin={this.updateOrigin} destination={this.updateDestination} distAndDur={this.state.distAndDur} routePossible={this.routePossible} unit={this.state.unit} />
+          <MapAddressInput lang={this.props.lang} origin={this.updateOrigin} destination={this.updateDestination} distAndDur={this.state.distAndDur} routePossible={this.routePossible} unit={this.state.localization.units} />
         </div>
         <MapRender origin={this.state.origin} destination={this.state.destination} distAndDur={this.calculateRoute} routePossible={this.routePossible} className="map" localization={this.state.localization} />
       </div>
