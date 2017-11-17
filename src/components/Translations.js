@@ -5,6 +5,7 @@ const Translations = {
         "GREETING" : "Hello, how are you?",
         "LOGIN": "Sign in",
         "REGISTER": "Register",
+        "MAPS_INFO_TITLE": "Please add origin and destination addresses, to calculate the route",
         "FROM": "From",
         "DESTINATION": "Destination",
         "SUBMIT_ADDRESSES": "Calculate the Route"
@@ -15,6 +16,7 @@ const Translations = {
         "GREETING" : "Hallo, wie geht es dir?",
         "LOGIN": "Einloggen",
         "REGISTER": "Registrieren",
+        "MAPS_INFO_TITLE": "Please add origin and destination addresses, to calculate the route",
         "FROM": "Von",
         "DESTINATION": "Nach",
         "SUBMIT_ADDRESSES": "Route berechnen"

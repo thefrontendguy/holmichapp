@@ -20,7 +20,7 @@ class Map extends Component {
     return (
       <div className="map-complete">
         <div className="map-infos">
-         <div className="title">Some Text</div>
+         <div className="title">{this.props.lang.MAPS_INFO_TITLE}</div>
           <MapAddressInput lang={this.props.lang} origin={this.updateOrigin} destination={this.updateDestination} />
         </div>
         <MapRender origin={this.state.origin} destination={this.state.destination} className="map" />
