@@ -1,5 +1,54 @@
 @import './_colors.scss';
 
-#PlacesAutocomplete__root div#PlacesAutocomplete__autocomplete-container {
-    background-color: red !important;
-} 
+@mixin border_radius {
+    border-radius: 2px;
+}
+@mixin pointer {
+    cursor: pointer;
+}
+@mixin transition {
+    transition: .15s all ease-in-out;
+}
+
+input {
+    outline: 0;
+    border: 1px solid rgba($col3, .5);
+    box-shadow: inset 0 0 2px 2px rgba($col3, .15);
+    @include border_radius;
+    @include transition();
+
+    &:hover {
+        border: 1px solid $col3;
+    }
+}
+
+///////////////////////////////////
+
+@mixin button {
+    border: none;
+    padding: 15px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    outline: 0;
+    @include transition;
+    @include border_radius;
+    & .icon {
+        margin-right: 13px;
+        font-size: inherit;
+    }
+}
+.button.submit {
+    background: $col5;
+    color: $col5_c;
+    @include button;
+    
+    &:hover {
+        background: darken($col5, 10);
+        @include pointer;
+    }
+}

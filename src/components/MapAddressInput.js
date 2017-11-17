@@ -1,6 +1,8 @@
 import React from 'react'
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 
+import FontAwesome from 'react-fontawesome';
+
 class MapAddressInput extends React.Component {
   constructor(props) {
     super(props)
@@ -44,12 +46,22 @@ class MapAddressInput extends React.Component {
       value: this.state.destination,
       onChange: this.changeDestinationAddress,
     }
-
+console.log(this.props);
     return (
       <form className="map-address-input" onSubmit={this.handleFormSubmit}>
+        <div className="label">{this.props.lang.FROM}</div>
         <PlacesAutocomplete className="map-input-container" inputProps={inputPropsOrigin} />
+       
+        <div className="label">{this.props.lang.DESTINATION}</div>
         <PlacesAutocomplete className="map-input-container" inputProps={inputPropsDestination} />
-         <button className="button submit" type="submit">Submit</button> 
+       
+        <button className="button submit" type="submit">
+        <FontAwesome
+          className='icon'
+          name='rocket'
+        />
+        {this.props.lang.SUBMIT_ADDRESSES}
+        </button> 
       </form>
     )
   }

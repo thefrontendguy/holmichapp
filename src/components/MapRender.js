@@ -9,13 +9,21 @@ const {
   DirectionsRenderer,
 } = require("react-google-maps");
 
-// START / Origin
+/* // START / Origin
 const originLat = null;
 const originLng = null;
 
 // DESTINATION
 const destinationLat = null;
-const destinationLng = null;
+const destinationLng = null; */
+
+// START / Origin
+const originLat = 41.8907300;
+const originLng = -87.6512600;
+
+// DESTINATION
+const destinationLat = 41.8525800;
+const destinationLng = -87.6514100;
 
 const Map = compose(
   withProps({
@@ -40,6 +48,7 @@ const Map = compose(
           this.setState({
             directions: result,
           });
+          console.log(result);
         } else {
           //console.error(`error fetching directions ${result}`);
           console.error(`You can not go there with the car. Buy a rocket.`);
@@ -56,10 +65,12 @@ const Map = compose(
         destination: new google.maps.LatLng(newProps.destination ? newProps.destination.lat : destinationLat, newProps.destination ? newProps.destination.lng : destinationLng),
         travelMode: google.maps.TravelMode.DRIVING,
       }, (result, status) => {
+        console.log(result.routes['0'].legs['0'].distance);
         if (status === google.maps.DirectionsStatus.OK) {
           this.setState({
             directions: result,
           });
+          console.log(result);
         } else {
           //console.error(`error fetching directions ${result}`);
           console.error("You can not go there by car. Buy a rocket.");
@@ -73,7 +84,8 @@ const Map = compose(
     defaultCenter={new google.maps.LatLng(originLat, originLng)}
   >
     {props.directions && <DirectionsRenderer directions={props.directions} />}
-  </GoogleMap>
-);
+    </GoogleMap>
+  );
+  console.log(this.props);
 
 export default Map;

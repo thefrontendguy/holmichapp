@@ -1,29 +1,87 @@
 @import './_colors.scss';
 
-$font_sm: 12px;
-$font_m: 16px;
-$font_l: 20px;
-$font_xl: 24px;
+@mixin transition {
+  transition: .15s all ease-in-out;
+}
 
+$font_sm: 9px;
+$font_m: 13px;
+$font_l: 17px;
+$font_xl: 21px;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', serif;  
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
 body {
   padding: 0;
   margin: 0;
-}
+  font-family: 'Open Sans', sans-serif;  
+  font-size: $font_m;
+  color: $col5;
 
+}
+#root {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
 #app {
   display: flex;
   flex-direction: column;
 
   height: 100vh;
+  flex: 1;
+  max-width: 1000px;
+
+  box-shadow: 0 2px 13px #b9b9b9;
 }
 .header {
   display: flex;
   align-items: center;
-  padding: 15px 20px;
-  background: $col3;
-  color: $col3_c;
+  justify-content: space-between;
+  padding: 10px 20px;
 
   font-size: $font_l;
+  
+  background: $col3;
+  color: $col3_c;    
+  box-shadow: 0 4px 8px -2px rgba(5, 62, 57, 0.8);
+  z-index: 1;
+  
+/*   & .icon {
+    font-size: $font_m;
+  } */
+  & .appname {
+    display: flex;
+    align-items: center;
+    
+    & .title_slogan {
+      margin-left: 10px;
+      text-transform: uppercase;
+      & .title {
+        font-weight: bold;
+      }
+      & .slogan {
+        font-size: $font_sm;
+      }
+    }
+  }
+  & .user {
+    font-size: $font_m;
+    & a {
+      padding: 10px 15px;
+      @include transition;
+
+      &:hover {
+        background: $col3_c;
+        color: $col3;
+      }
+    }
+  }
 }
 
 .map-complete {
@@ -36,14 +94,28 @@ body {
     width: 300px;
     padding: 20px;
 
+    box-shadow: 12px 0px 10px -8px #c5c5c5;
+    z-index: 1;
+    
+    & > .title {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: $col3;
+    }
+
     & .map-address-input {
       display: flex;
       flex-direction: column;
-    
+      
+      & > .label {
+        text-align: center;
+      }
       & #PlacesAutocomplete__root {
         flex: 1;
 
         display: flex;
+        margin-bottom: 10px;
         
         & input {
           flex: 1;

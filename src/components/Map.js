@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import MapRender from './MapRender';
 import MapAddressInput from './MapAddressInput';
 
-import Translations from './Translations';
-
 class Map extends Component {
   constructor() {
     super();
     this.state = {
       origin: null,
-      destination: null,
-      lang: "en_EN"
+      destination: null
     }
   }
   updateOrigin = (latLng) => {
@@ -20,11 +17,11 @@ class Map extends Component {
     this.setState({destination: latLng});
   }
   render() {
-    console.log(Translations[this.state.lang].APPNAME)
     return (
       <div className="map-complete">
         <div className="map-infos">
-          <MapAddressInput origin={this.updateOrigin} destination={this.updateDestination} />
+         <div className="title">Some Text</div>
+          <MapAddressInput lang={this.props.lang} origin={this.updateOrigin} destination={this.updateDestination} />
         </div>
         <MapRender origin={this.state.origin} destination={this.state.destination} className="map" />
       </div>
