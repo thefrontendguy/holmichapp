@@ -50,12 +50,13 @@ body {
         font-weight: bold; }
       .header .appname .title_slogan .slogan {
         font-size: 9px; }
-  .header .user {
+  .header .links {
     font-size: 13px; }
-    .header .user a {
+    .header .links a {
       padding: 10px 15px;
+      margin-right: 2px;
       transition: .15s all ease-in-out; }
-      .header .user a:hover {
+      .header .links a:hover, .header .links a.active {
         background: #fff;
         color: #1DA79C; }
 

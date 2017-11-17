@@ -70,13 +70,15 @@ body {
       }
     }
   }
-  & .user {
+  & .links {
     font-size: $font_m;
     & a {
       padding: 10px 15px;
+      margin-right: 2px;
       @include transition;
 
-      &:hover {
+      &:hover,
+      &.active {
         background: $col3_c;
         color: $col3;
       }

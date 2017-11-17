@@ -1,14 +1,16 @@
 import React from 'react';
-
 import FontAwesome from 'react-fontawesome';
 
-class Header extends React.Component {
+import {
+    NavLink
+} from "react-router-dom";
+
+class MainLayout extends React.Component {   
     render() {
         console.log(this.props);
         return (
             <div className='header'>
-                       
-                <div className='appname'>
+                <NavLink to='/' className='appname' activeClassName='active'>
                     <FontAwesome
                         className='icon'
                         name='rocket'
@@ -22,14 +24,15 @@ class Header extends React.Component {
                             {this.props.lang.SLOGAN}
                         </div>
                     </div>
-                </div>
-                <div className='user'>
-                    <a href='#' className='login'>{this.props.lang.LOGIN}</a>
-                    <a href='#' className='register'>{this.props.lang.REGISTER}</a>
+                </NavLink>
+                <div className='links'>
+                    <NavLink to='/route' className='route' activeClassName='active'>{this.props.lang.ROUTE}</NavLink>
+                    <NavLink to='/login' className='login' activeClassName='active'>{this.props.lang.LOGIN}</NavLink>
+                    <NavLink to='/register' className='register' activeClassName='active'>{this.props.lang.REGISTER}</NavLink>
                 </div>
             </div>
         )
     }
 }
 
-export default Header;
+export default MainLayout;
