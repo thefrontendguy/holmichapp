@@ -18,10 +18,10 @@ class Map extends Component {
     }
   }
   updateOrigin = (latLng) => {
-    this.setState({origin: latLng})
+    this.setState({ origin: latLng })
   }
   updateDestination = (latLng) => {
-    this.setState({destination: latLng});
+    this.setState({ destination: latLng });
   }
   calculateRoute = (result) => {
     this.setState({
@@ -30,14 +30,14 @@ class Map extends Component {
     //alert("fired calculateRoute");
   }
   routePossible = (bool) => {
-    this.setState({route_possible: bool});
+    this.setState({ route_possible: bool });
   }
   render() {
     return (
       <div className="map-complete">
         <div className="map-infos">
-         <div className="title">{this.props.lang.MAPS_INFO_TITLE}</div>
-          <MapAddressInput lang={this.props.lang} origin={this.updateOrigin} destination={this.updateDestination} distAndDur={this.state.distAndDur} routePossible={this.routePossible} unit={this.state.unit}/>
+          <div className="title">{this.props.lang.MAPS_INFO_TITLE}</div>
+          <MapAddressInput lang={this.props.lang} origin={this.updateOrigin} destination={this.updateDestination} distAndDur={this.state.distAndDur} routePossible={this.routePossible} unit={this.state.unit} />
         </div>
         <MapRender origin={this.state.origin} destination={this.state.destination} distAndDur={this.calculateRoute} routePossible={this.routePossible} className="map" localization={this.state.localization} />
       </div>
