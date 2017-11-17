@@ -12,7 +12,8 @@ const Translations = {
         "SUBMIT_ADDRESSES": "Calculate the Route",
         "DISTANCE": "The distance is: ",
         "DURATION": "The duration is: ",
-        "ESTIMATED_DURATION": "Estimated duration: "
+        "ESTIMATED_DURATION": "Estimated duration: ",
+        "ROUTE_IMPOSSIBLE": "It is not possible to go there by car"
     },
     de_DE: {
         "APPNAME" : "HolMichApp",
@@ -27,7 +28,8 @@ const Translations = {
         "SUBMIT_ADDRESSES": "Route berechnen",
         "DISTANCE": "Die Entfernung beträgt: ",
         "DURATION": "Die Fahrtdauer beträgt: ",
-        "ESTIMATED_DURATION": "Geschätzte Fahrtdauer: "
+        "ESTIMATED_DURATION": "Geschätzte Fahrtdauer: ",
+        "ROUTE_IMPOSSIBLE": "It is not possible to go there by car"
     }
 }
 

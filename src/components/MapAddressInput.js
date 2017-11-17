@@ -65,13 +65,18 @@ console.log(this.props);
         {(this.props.distAndDur !== null) 
           ? <div> 
               <p>
-              {this.props.lang.DISTANCE} {this.props.distAndDur.routes[0].legs[0].distance.text}
+              {this.props.lang.DISTANCE} {this.props.distAndDur.routes[0].legs[0].distance.text.split(" ")[0] + this.props.unit}
               </p>
               <p>
               {this.props.lang.ESTIMATED_DURATION} {this.props.distAndDur.routes[0].legs[0].duration.text}
               </p>
             </div> 
-          : <div>  <p> {this.props.lang.FILL_FORM}  </p> </div>
+          : <div>
+              <p> 
+               <br /> 
+                {this.props.lang.FILL_FORM}  
+              </p> 
+            </div>
            }
       </form>
     )

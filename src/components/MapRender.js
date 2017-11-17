@@ -9,25 +9,30 @@ const {
   DirectionsRenderer,
 } = require("react-google-maps");
 
-/* // START / Origin
+// START / Origin
 const originLat = null;
 const originLng = null;
 
 // DESTINATION
 const destinationLat = null;
-const destinationLng = null; */
+const destinationLng = null;
 
-// START / Origin
+
+/* // START / Origin
 const originLat = 41.8907300;
 const originLng = -87.6512600;
 
 // DESTINATION
 const destinationLat = 41.8525800;
-const destinationLng = -87.6514100;
-
+const destinationLng = -87.6514100; */
+var localization =  {
+  language: "&language=en",
+  region: "&region=GB",
+  lang: "en_EN"
+}
 const Map = compose(
   withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places",
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places" + localization.language + localization.region,
     loadingElement: <div className='map-layout' />,
     containerElement: <div className='map' />,
     mapElement: <div className='map-element' />,
@@ -65,15 +70,13 @@ const Map = compose(
         destination: new google.maps.LatLng(newProps.destination ? newProps.destination.lat : destinationLat, newProps.destination ? newProps.destination.lng : destinationLng),
         travelMode: google.maps.TravelMode.DRIVING,
       }, (result, status) => {
-        //console.log(result.routes['0'].legs['0'].distance);
         if (status === google.maps.DirectionsStatus.OK) {
           this.setState({
             directions: result
           });
           this.props.distAndDur(result);
-          console.log(this.props);
         } else {
-          //console.error(`error fetching directions ${result}`);
+          this.props.distAndDur(null);
           console.error("You can not go there by car. Buy a rocket.");
         }
       });

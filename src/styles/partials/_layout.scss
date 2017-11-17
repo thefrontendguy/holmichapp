@@ -10,7 +10,7 @@ $font_l: 17px;
 $font_xl: 21px;
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lora', serif;  
+  font-family: 'Lora', serif;
 }
 a {
   text-decoration: none;
@@ -23,7 +23,6 @@ body {
   font-size: $font_m;
   line-height: 1.5;
   color: $col5;
-
 }
 #root {
   display: flex;
