@@ -24,12 +24,18 @@ class App extends React.Component {
             <HashRouter>
                 <div id='app'>                
                     <Header lang={translation} />
-                    <Route exact path='/' component={Home} />
+                    <Route exact path='/' render={(props) => (
+                        <Home {...props} lang={translation} />
+                    )} />
                     <Route path='/route' render={(props) => (
                         <Map {...props} lang={translation} />
                     )} />
-                    <Route path='/login' component={Login} />
-                    <Route path='/register' component={Login} />
+                    <Route path='/login' render={(props) => (
+                        <Login {...props} lang={translation} />
+                    )} />
+                    <Route path='/register' render={(props) => (
+                        <Login {...props} lang={translation} />
+                    )} />
                 </div>
             </HashRouter>
             )

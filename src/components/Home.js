@@ -4,7 +4,10 @@ class Home extends React.Component {
     render() {
         
         return (
-            <div><h1>HOME</h1></div>            
+            <div class='home content'>
+                <h1>{this.props.lang.HOME_TITLE}</h1>
+                <p>{this.props.lang.HOME_TEXT}</p>
+            </div>            
             )
         }
     } 

@@ -1,7 +1,7 @@
 @import './_colors.scss';
 
 @mixin transition {
-  transition: .15s all ease-in-out;
+  transition: .15s all linear;
 }
 
 $font_sm: 9px;
@@ -11,6 +11,7 @@ $font_xl: 21px;
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Lora', serif;
+  line-height: 1.15;
 }
 a {
   text-decoration: none;
@@ -32,12 +33,23 @@ body {
 #app {
   display: flex;
   flex-direction: column;
-
+  
   height: 100vh;
   flex: 1;
   max-width: 1000px;
-
+  
   box-shadow: 0 2px 13px #b9b9b9;
+
+  & .content {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    & form {
+      max-width: 400px;
+    }
+  }
 }
 .header {
   display: flex;
@@ -145,5 +157,15 @@ body {
   }
   & .map-element {
     flex: 1;
+  }
+}
+
+.login-form {
+  & form {
+    display: flex;
+    flex-direction: column;
+    & .input {
+      margin-bottom: 10px;
+    }
   }
 }

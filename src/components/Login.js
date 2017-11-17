@@ -1,21 +1,19 @@
 import React from 'react';
 
 class Login extends React.Component {
-
-    click = () => {
-        alert("clicked");
-    }
     render() {
         return (
-            <div class='login-form'>
-            <form>
-                <h1>This is the best login screen ever</h1>
+            <div class='content login-form'>
+                <form>
+                    <h1>{this.props.lang.LOGIN_FORM_TITLE}</h1>
+                    <label for='user'>{this.props.lang.ENTER_USERNAME}</label>
+                    <input className='input' type='text' name='user' placeholder={this.props.lang.PLACEHOLDER_USERNAME} />
+                    
+                    <label for='password'>{this.props.lang.ENTER_PASSWORD}</label>
+                    <input className='input' type='password' name='password' placeholder={this.props.lang.PLACEHOLDER_PASSWORD} />
                 
-                <input type='text' name='user' placeholder='Username or email' />
-                <input type='password' name='password' placeholder='password' />
-            
-                <input type='button' value='Login' onClick={this.click} />
-            </form>
+                    <button type='button' className='button submit'>{this.props.lang.LOGIN}</button>
+                </form>
             </div>
         )
     }

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lora|Open+Sans");
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lora', serif; }
+  font-family: 'Lora', serif;
+  line-height: 1.15; }
 
 a {
   text-decoration: none;
@@ -26,6 +27,13 @@ body {
   flex: 1;
   max-width: 1000px;
   box-shadow: 0 2px 13px #b9b9b9; }
+  #app .content {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    #app .content form {
+      max-width: 400px; }
 
 .header {
   display: flex;
@@ -55,7 +63,7 @@ body {
     .header .links a {
       padding: 10px 15px;
       margin-right: 2px;
-      transition: .15s all ease-in-out; }
+      transition: .15s all linear; }
       .header .links a:hover, .header .links a.active {
         background: #fff;
         color: #1DA79C; }
@@ -100,13 +108,22 @@ body {
   .map-complete .map-element {
     flex: 1; }
 
-input {
+.login-form form {
+  display: flex;
+  flex-direction: column; }
+  .login-form form .input {
+    margin-bottom: 10px; }
+
+input,
+.input {
   outline: 0;
   border: 1px solid rgba(29, 167, 156, 0.5);
   box-shadow: inset 0 0 2px 2px rgba(29, 167, 156, 0.15);
   border-radius: 2px;
-  transition: .15s all ease-in-out; }
-  input:hover {
+  transition: .15s all ease-in-out;
+  padding: 10px; }
+  input:hover,
+  .input:hover {
     border: 1px solid #1DA79C; }
 
 .button {
