@@ -13,7 +13,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
   line-height: 1.5;
-  color: #CE1FBF; }
+  color: #CE391F; }
 
 #root {
   display: flex;
@@ -138,10 +138,10 @@ input,
     font-size: inherit; }
 
 .button.submit {
-  background: #CE1FBF;
+  background: #CE391F;
   color: #fff;
   border: none;
   padding: 15px; }
   .button.submit:hover {
-    background: #a21896;
+    background: #a22d18;
     cursor: pointer; }

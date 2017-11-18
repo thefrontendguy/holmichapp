@@ -9,8 +9,8 @@ import Translations from './components/Translations';
 import { localization } from './config';
 
 import {
-    Route,
-    HashRouter
+    BrowserRouter as Router,
+    Route
 } from "react-router-dom";
 
 class App extends React.Component {
@@ -21,7 +21,7 @@ class App extends React.Component {
         const translation = Translations[this.state.lang];
         
         return (
-            <HashRouter>
+            <Router>
                 <div id='app'>                
                     <Header lang={translation} />
                     <Route exact path='/' render={(props) => (
@@ -37,10 +37,9 @@ class App extends React.Component {
                         <Login {...props} lang={translation} />
                     )} />
                 </div>
-            </HashRouter>
+            </Router>
             )
         }
     } 
-//    <Map lang={translation} />
 
 export default App;

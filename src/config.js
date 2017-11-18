@@ -1,6 +1,6 @@
 var lang = navigator.language;
 var language = lang.substring(0, 2);
-if (language != ("de")) { language = "en" }
+if (language !== ("en")) { language = "en" }
 var region = lang.substring(3, 5);
 
 export const localization = {

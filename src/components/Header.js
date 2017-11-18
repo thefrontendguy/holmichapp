@@ -7,7 +7,6 @@ import {
 
 class MainLayout extends React.Component {   
     render() {
-        console.log(this.props);
         return (
             <div className='header'>
                 <NavLink to='/' className='appname' activeClassName='active'>
