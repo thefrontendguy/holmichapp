@@ -40,4 +40,21 @@ router.delete("/:id/delete", (req, res) => {
     })
 })
 
+
+// login //
+router.post("/login", (req, res) => {
+    User.findOne({ email: req.body.email, password: req.body.password }, (err, user) => {
+        if (err) {
+            res.json(err);
+        } else {
+            if (user) {
+                res.json(user);
+            } else {
+                res.json({ status: "email/password combo not found" });
+            }
+        }
+    })
+})
+
+
 module.exports = router;
