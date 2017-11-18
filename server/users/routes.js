@@ -6,17 +6,17 @@ var User = require("./model");
 router.post("/create", (req, res) => {
     user = req.body;
     User.create(user)
-        .then(user => { res.json(user); })
-        .catch(err => { res.json(err); })
+        .then(user => { res.status(200).json(user); })
+        .catch(err => { res.status(500).json(err); })
 });
 
 // R //
 router.get("/:id", (req, res) => {
     User.findOne({ _id: req.params.id }, (err, user) => {
         if (err) {
-            res.json(err);
+            res.status(500).json(err);
         } else {
-            res.json(user);
+            res.status(200).json(user);
         }
     })
 })
@@ -25,9 +25,9 @@ router.get("/:id", (req, res) => {
 router.post("/:id/update", (req, res) => {
     User.update({ _id: req.params.id }, { $set: req.body }, (err, user) => {
         if (err) {
-            res.json(err);
+            res.status(500).json(err);
         } else {
-            res.json(user);
+            res.status(200).json(user);
         }
     })
 })
@@ -35,7 +35,7 @@ router.post("/:id/update", (req, res) => {
 // D //
 router.delete("/:id/delete", (req, res) => {
     User.remove({ _id: req.params.id }, (err) => {
-        if (err) res.json(err);
+        if (err) res.status(500).json(err);
         else res.status(200).json({ "status": "success" });
     })
 })
@@ -45,12 +45,12 @@ router.delete("/:id/delete", (req, res) => {
 router.post("/login", (req, res) => {
     User.findOne({ email: req.body.email, password: req.body.password }, (err, user) => {
         if (err) {
-            res.json(err);
+            res.status(500).json(err);
         } else {
             if (user) {
-                res.json(user);
+                res.status(200).json(user);
             } else {
-                res.json({ status: "email/password combo not found" });
+                res.status(404).json({ status: "email/password combo not found" });
             }
         }
     })
