@@ -1,9 +1,12 @@
 import React from 'react';
+
 import Header from './components/Header';
-import Map from './components/Map';
-import Login from './components/Login';
 
 import Home from './components/Home';
+import Map from './components/Map';
+import Login from './components/Login';
+import Profile from './components/Profile';
+
 
 import Translations from './components/Translations';
 import { localization } from './config';
@@ -35,6 +38,9 @@ class App extends React.Component {
                     )} />
                     <Route path='/register' render={(props) => (
                         <Login {...props} lang={translation} />
+                    )} />
+                    <Route path='/profile' render={(props) => (
+                        <Profile {...props} lang={translation} />
                     )} />
                 </div>
             </Router>

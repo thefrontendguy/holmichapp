@@ -9,7 +9,7 @@ class MainLayout extends React.Component {
     render() {
         return (
             <div className='header'>
-                <NavLink to='/' className='appname' activeClassName='active'>
+                <NavLink to='/' className='appname'>
                     <FontAwesome
                         className='icon'
                         name='rocket'
@@ -25,9 +25,10 @@ class MainLayout extends React.Component {
                     </div>
                 </NavLink>
                 <div className='links'>
-                    <NavLink to='/route' className='route' activeClassName='active'>{this.props.lang.ROUTE}</NavLink>
-                    <NavLink to='/login' className='login' activeClassName='active'>{this.props.lang.LOGIN}</NavLink>
-                    <NavLink to='/register' className='register' activeClassName='active'>{this.props.lang.REGISTER}</NavLink>
+                    <NavLink to='/route' className='route'>{this.props.lang.ROUTE}</NavLink>
+                    <NavLink to='/login' className='login'>{this.props.lang.LOGIN}</NavLink>
+                    <NavLink to='/register' className='register'>{this.props.lang.REGISTER}</NavLink>
+                    <NavLink to='/profile' className='profile'>{this.props.lang.PROFILE}</NavLink>
                 </div>
             </div>
         )

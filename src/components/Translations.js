@@ -1,15 +1,21 @@
 const Translations = {
-     "en": {
+    "en": {
         "APPNAME" : "Some Name",
         "SLOGAN" : "the best app ever",
+        
+        "HOME_TITLE": "A title for RRRR the home screen",
+        "HOME_TEXT": "A text for the home",
 
-        "HOME_TITLE": "A title for the home screen",
-        "HOME_TEXT": "A text for the home screen",
-        "GREETING" : "Hello, how are you?",
+        "GREETING" : "Hello %addvar%, how are you?",
         
         "ROUTE": "Route Planner",
         "LOGIN": "Sign in",
         "REGISTER": "Register",
+        
+        "PROFILE": "Your Profile",
+        "PROFILE_TITLE": "Profile Title",
+        "PROFILE_GREETING": "Some greetings for the logged in user",
+
         "MAPS_INFO_TITLE": "Please add origin and destination addresses, to calculate the route",
         "FROM": "From",
         "FILL_FORM": "Please fill the form, to see distance and duration.",
@@ -32,11 +38,15 @@ const Translations = {
 
         "HOME_TITLE": "Das ist die Startseite",
         "HOME_TEXT": "Irgend ein Text auf der Startseite",
-        "GREETING" : "Hallo, wie geht es dir?",
+        "GREETING" : "Hallo %addvar%, wie geht es dir?",
         
         "ROUTE": "Zum Routenplaner",
         "LOGIN": "Einloggen",
         "REGISTER": "Registrieren",
+
+        "PROFILE": "Dein Profil",
+        "PROFILE_TITLE": "Die Überschrift des Profils",
+        "PROFILE_GREETING": "Hallo %addvar%, geht es dir gut?",
         
         "MAPS_INFO_TITLE": "Bitte gib den Startpunk und das Ziel deiner gewünschten Route an",
         "FROM": "Von",
