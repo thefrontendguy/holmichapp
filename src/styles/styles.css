@@ -44,10 +44,7 @@ body {
   background: #1DA79C;
   color: #fff;
   box-shadow: 0 4px 8px -2px rgba(5, 62, 57, 0.8);
-  z-index: 1;
-  /*   & .icon {
-    font-size: $font_m;
-  } */ }
+  z-index: 1; }
   .header .appname {
     display: flex;
     align-items: center; }
@@ -59,7 +56,13 @@ body {
       .header .appname .title_slogan .slogan {
         font-size: 9px; }
   .header .links {
-    font-size: 13px; }
+    font-size: 13px;
+    display: flex; }
+    .header .links .login-register {
+      flex: 1;
+      display: flex; }
+      .header .links .login-register a {
+        flex: 1; }
     .header .links a {
       padding: 10px 15px;
       margin-right: 2px;
@@ -67,6 +70,9 @@ body {
       .header .links a:hover, .header .links a.active {
         background: #fff;
         color: #1DA79C; }
+  .header .language-switcher {
+    border: none;
+    color: #1DA79C; }
 
 .map-complete {
   flex: 1;

@@ -1,4 +1,4 @@
-const Translations = {
+var Translations = {
     "en": {
         "APPNAME" : "Some Name",
         "SLOGAN" : "the best app ever",
@@ -6,7 +6,7 @@ const Translations = {
         "HOME_TITLE": "A title for RRRR the home screen",
         "HOME_TEXT": "A text for the home",
 
-        "GREETING" : "Hello %addvar%, how are you?",
+        "GREETING" : `Hello %addvar%, how are you?`,
         
         "ROUTE": "Route Planner",
         "LOGIN": "Sign in",
@@ -26,7 +26,7 @@ const Translations = {
         "ESTIMATED_DURATION": "Estimated duration: ",
         "ROUTE_IMPOSSIBLE": "It is not possible to go there by car",
         
-        "LOGIN_FORM_TITLE": "This ist the best login form ever",
+        "LOGIN_FORM_TITLE": "This is the best login form ever",
         "ENTER_USERNAME": "Enter username or email",
         "PLACEHOLDER_USERNAME": "Your username or email",
         "ENTER_PASSWORD": "Enter password",
@@ -66,4 +66,4 @@ const Translations = {
     }
 }
 
-export default Translations; 
+export default Translations;

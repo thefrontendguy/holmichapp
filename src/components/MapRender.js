@@ -80,7 +80,7 @@ const Map = compose(
   })
 )(props =>
   <GoogleMap
-    defaultZoom={1}
+    defaultZoom={2}
     defaultCenter={new google.maps.LatLng(originLat, originLng)}
   >
     {props.directions && <DirectionsRenderer directions={props.directions} />}

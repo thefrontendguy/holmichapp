@@ -5,8 +5,15 @@ import {
     NavLink
 } from "react-router-dom";
 
-class MainLayout extends React.Component {   
+import { store } from '../redux/store';
+
+import LanguageSwitcher from '../containers/LanguageSwitcher';
+import text from '../translate';
+
+class MainLayout extends React.Component {
     render() {
+        var lang = String(store.getState().lang.language);
+        
         return (
             <div className='header'>
                 <NavLink to='/' className='appname'>
@@ -17,19 +24,20 @@ class MainLayout extends React.Component {
                     />
                     <div className='title_slogan'>
                         <div className='title'>
-                            {this.props.lang.APPNAME}
+                            {text()[lang].APPNAME}
                         </div>
                         <div className='slogan'>
-                            {this.props.lang.SLOGAN}
+                            {text()[lang].SLOGAN}
                         </div>
                     </div>
                 </NavLink>
                 <div className='links'>
-                    <NavLink to='/route' className='route'>{this.props.lang.ROUTE}</NavLink>
-                    <NavLink to='/login' className='login'>{this.props.lang.LOGIN}</NavLink>
-                    <NavLink to='/register' className='register'>{this.props.lang.REGISTER}</NavLink>
-                    <NavLink to='/profile' className='profile'>{this.props.lang.PROFILE}</NavLink>
+                    <NavLink to='/route' className='route'>{text()[lang].ROUTE}</NavLink>
+                    <NavLink to='/login' className='login'>{text()[lang].LOGIN}</NavLink>
+                    <NavLink to='/register' className='register'>{text()[lang].REGISTER}</NavLink>
+                    <NavLink to='/profile' className='profile'>{text()[lang].PROFILE}</NavLink>
                 </div>
+                <LanguageSwitcher />
             </div>
         )
     }
