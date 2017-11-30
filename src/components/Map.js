@@ -1,42 +1,40 @@
 import React, { Component } from 'react';
-import MapRender from './MapRender';
-import MapAddressInput from './MapAddressInput';
+import MapRender from '../containers/MapRender';
+import MapAddressInput from '../containers/MapAddressInput';
 
-import { localization } from '../config';
+import { store } from '../redux/store';
+import text from '../translate';
 
 class Map extends Component {
   constructor() {
     super();
     this.state = {
-      origin: null,
-      destination: null,
       distAndDur: null,
-      localization: localization
+      route_possible: null
     }
-  }
-  updateOrigin = (latLng) => {
-    this.setState({ origin: latLng })
-  }
-  updateDestination = (latLng) => {
-    this.setState({ destination: latLng });
   }
   calculateRoute = (result) => {
     this.setState({
       distAndDur: result
     });
-    //alert("fired calculateRoute");
   }
+
   routePossible = (bool) => {
     this.setState({ route_possible: bool });
   }
   render() {
+    var lang = String(store.getState().lang.language);
+
     return (
       <div className="map-complete">
         <div className="map-infos">
-          <div className="title">{this.props.lang.MAPS_INFO_TITLE}</div>
-          <MapAddressInput lang={this.props.lang} origin={this.updateOrigin} destination={this.updateDestination} distAndDur={this.state.distAndDur} routePossible={this.routePossible} unit={this.state.localization.units} />
+          <div className="title">{text()[lang].MAPS_INFO_TITLE}</div>
+          <MapAddressInput distAndDur={this.state.distAndDur} routePossible={this.routePossible} unit={' km'} />
         </div>
-        <MapRender origin={this.state.origin} destination={this.state.destination} distAndDur={this.calculateRoute} routePossible={this.routePossible} className="map" localization={this.state.localization} />
+        <MapRender
+          origin={store.getState().route.originLatLng.originLatLng}
+          destination={store.getState().route.destinationLatLng.destinationLatLng}
+          distAndDur={this.calculateRoute} routePossible={this.routePossible} className="map" localization={lang} />
       </div>
     );
   }

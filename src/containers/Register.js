@@ -54,9 +54,10 @@ class Login extends React.Component {
         return (
             <div className='content login-form'>
 
-                {this.state.user === null ? '' : <Redirect push to="/profile" user={this.state.user} />}
+                {this.state.user === null ? '' : <Redirect push to="/login" user={this.state.user} />}
                 <form>
-                    <h1>{text()[lang].LOGIN_FORM_TITLE}</h1>
+                    <h1>ee {text()[lang].REGISTER_FORM_TITLE}</h1>
+                    <h1>ee {text()[lang].LOGIN_FORM_TITLE}</h1>
 
                     <label htmlFor='user'>{text()[lang].ENTER_USERNAME}</label>
                     <input

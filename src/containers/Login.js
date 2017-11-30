@@ -48,7 +48,7 @@ class Login extends React.Component {
             .catch(error => console.log(error.response))
     }
 
-    render() {
+    render() {  
         var lang = String(store.getState().lang.language);
 
         return (

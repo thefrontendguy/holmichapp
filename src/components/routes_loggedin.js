@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import Profile from './Profile';
 import Translations from './Translations';
 
@@ -22,4 +22,4 @@ class RoutesLoggedIn extends React.Component {
 
 }
 
-export default RoutesLoggedIn;
+export default RoutesLoggedIn; */

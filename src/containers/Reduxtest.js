@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import axios from 'axios';
 
 import {
@@ -37,4 +37,4 @@ class Reduxtest extends React.Component {
 }
 
 
-export default Reduxtest;
+export default Reduxtest; */

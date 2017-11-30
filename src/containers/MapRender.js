@@ -2,6 +2,8 @@
 import React from 'react';
 import { localization } from '../config';
 
+import { store } from '../redux/store';
+
 const { compose, withProps, lifecycle } = require("recompose");
 const {
   withScriptjs,
@@ -17,7 +19,6 @@ const originLng = null;
 // DESTINATION
 const destinationLat = null;
 const destinationLng = null;
-
 
 /* // START / Origin
 const originLat = 41.8907300;
@@ -36,7 +37,10 @@ const Map = compose(
   withScriptjs,
   withGoogleMap,
   lifecycle({
+    componentWillMount() {
+    },
     componentDidMount() {
+      console.log(this.props)
       const DirectionsService = new google.maps.DirectionsService();
 
       DirectionsService.route({
@@ -45,11 +49,11 @@ const Map = compose(
         destination: new google.maps.LatLng(this.props.destination ? this.props.destination.lat : destinationLat, this.props.destination ? this.props.destination.lng : destinationLng),
         travelMode: google.maps.TravelMode.DRIVING,
       }, (result, status) => {
+        console.log(result);
         if (status === google.maps.DirectionsStatus.OK) {
           this.setState({
             directions: result,
           });
-          //console.log(result);
         } else {
           //console.error(`error fetching directions ${result}`);
           console.error(`You can not go there with the car. Buy a rocket.`);
@@ -66,6 +70,7 @@ const Map = compose(
         destination: new google.maps.LatLng(newProps.destination ? newProps.destination.lat : destinationLat, newProps.destination ? newProps.destination.lng : destinationLng),
         travelMode: google.maps.TravelMode.DRIVING,
       }, (result, status) => {
+        console.log(result);
         if (status === google.maps.DirectionsStatus.OK) {
           this.setState({
             directions: result
@@ -86,6 +91,6 @@ const Map = compose(
     {props.directions && <DirectionsRenderer directions={props.directions} />}
     </GoogleMap>
   );
-  //console.log(this.props);
+  console.log(this.props);
 
 export default Map;

@@ -9,7 +9,6 @@ export default class LanguageSwitcher extends Component {
     }
     render() {
         var defaultLang = String(store.getState().lang.language);
-        console.log(defaultLang)
 
         return (
 
