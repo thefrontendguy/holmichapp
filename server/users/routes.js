@@ -11,7 +11,7 @@ router.post("/create", (req, res) => {
         }
         user.password = hash;
         User.create(user)
-            .then(user => { res.status(200).json(user); })
+            .then(user => { user.password = undefined; res.status(200).json(user); })
             .catch(err => { res.status(500).json(err); })
     })
 });
@@ -36,21 +36,21 @@ router.post("/:id/update", (req, res) => {
                 res.status(500).json(err);
             } else {
                 user.password = hash;
-                User.update({ _id: req.params.id }, { $set: user }, (err, user) => {
+                User.update({ _id: req.params.id }, { $set: user }, (err, response) => {
                     if (err) {
                         res.status(500).json(err);
                     } else {
-                        res.status(200).json(user);
+                        res.status(200).json(response);
                     }
                 })
             }
         })
     } else {
-        User.update({ _id: req.params.id }, { $set: user }, (err, user) => {
+        User.update({ _id: req.params.id }, { $set: user }, (err, response) => {
             if (err) {
                 res.status(500).json(err);
             } else {
-                res.status(200).json(user);
+                res.status(200).json(response);
             }
         })
     }
