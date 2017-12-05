@@ -12,6 +12,10 @@ var schema = {
         required: true
     },
     contacts: [{
+        id: {
+            type: String,
+            required: false
+        },
         name: {
             type: String,
             required: true
@@ -25,36 +29,30 @@ var schema = {
             required: false
         }
     }],
-    messages: [{
-        id: {
+    conversations: [{
+        conversation: { // _id
             type: String,
             required: true
         },
         user: { // _id
             type: String,
-            required: true
+            required: false
         }
     }],
-    home: {
+    locations: [{
+        name: {
+            type: String,
+            required: true
+        },
         lat: {
             type: Number,
-            required: false
+            required: true
         },
-        long: {
+        lng: {
             type: Number,
-            required: false
+            required: true
         }
-    },
-    work: {
-        lat: {
-            type: Number,
-            required: false
-        },
-        long: {
-            type: Number,
-            required: false
-        }
-    }
+    }]
 }
 
 module.exports = schema;

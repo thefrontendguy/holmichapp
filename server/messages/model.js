@@ -1,8 +1,8 @@
-var db = require("../config/database");
+//var db = require("../config/database");
 var mongoose = require("mongoose");
-var Conversation = require("./schema");
+var schema = require("./schema");
 
-db.startDB();
+//db.startDB();
 var Conversation = mongoose.model("Conversation", schema);
 
 /*Conversation.create({

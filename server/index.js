@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 var userRoutes = require("./users");
+var messageRoutes = require("./messages");
 var compress = require("compression");
 var secret = require("./config/keys").sessionsecret;
 app.use(compress());
@@ -47,6 +48,7 @@ app.set('port', port);
 app.use(express.static("build"));
 
 app.use("/user/", userRoutes);
+app.use("/message/", messageRoutes);
 
 // set up error middleware
 app.use(function (req, res) {
