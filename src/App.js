@@ -12,6 +12,7 @@ import { store } from './redux/store';
 import text from './translate';
 
 import {
+    Switch,
     BrowserRouter as Router,
     Route
 } from "react-router-dom";
@@ -19,18 +20,25 @@ import {
 class App extends React.Component {
     render() {
         const lang = store.getState().lang.language;
-        const translation = text[lang];
+        const isLoggedIn = store.getState().user.isLoggedIn;
         return (
             <Router>
                 <div id='app'>
                     <Header />
-                    <Route exact path='/' component={Home} />
-                    <Route path='/route' render={(props) => (
-                        <Map {...props} lang={translation} />
-                    )} />
-                    <Route path='/login' component={Login} />
-                    <Route path='/register' component={Register} />
-                    <Route path='/profile' component={Profile} />
+                    {isLoggedIn
+                        ?
+                        <Switch>
+                            <Route exact path='/' component={Home} />
+                            <Route path='/route' component={Map} />
+                            <Route path='/profile' component={Profile} />
+                        </Switch>
+                        :
+                        <Switch>
+                            <Route path='/route' component={Map} />
+                            <Route path='/login' component={Login} />
+                            <Route path='/register' component={Register} />
+                        </Switch>
+                    }
                 </div>
             </Router>
         )

@@ -96,6 +96,16 @@ body {
         .header .links div a:hover, .header .links div a.active {
           background: #fff;
           color: #CE391F; }
+        .header .links div a.login::before {
+          content: "";
+          font-family: "Fontawesome";
+          font-size: 145%;
+          margin-right: 5px; }
+        .header .links div a.register::before {
+          content: "";
+          font-family: "Fontawesome";
+          font-size: 145%;
+          margin-right: 5px; }
         .header .links div a.route::before {
           content: "";
           font-family: "Fontawesome";

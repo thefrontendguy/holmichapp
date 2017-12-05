@@ -141,13 +141,21 @@ body {
           background: $col3_c;
           color: $col3;
         }
-  
+        &.login {
+          &::before {
+            @include headerIcon("\F007")
+          }
+        }
+        &.register {
+          &::before {
+            @include headerIcon("\F234")
+          }
+        }
         &.route {
           &::before {
             @include headerIcon("\F277")
           }
         }
-  
         &.profile {
           &::before {
             @include headerIcon("\f14e")

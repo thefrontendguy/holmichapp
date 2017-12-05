@@ -55,7 +55,7 @@ class MapAddressInput extends React.Component {
           inputProps={inputPropsOrigin} />
 
         <Button
-          type='button'
+          type='submit'
           myStyle='submit submit-addresses'
           text={text()[lang].SUBMIT_ADDRESSES}
         />
