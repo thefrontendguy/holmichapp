@@ -7,17 +7,11 @@ function userReducer(state = {
 }, action) {
     switch (action.type) {
         case 'SET_EMAIL':
-            return Object.assign({}, state, {
-                email: action.email
-            })
+            return {...state, email: action.email }
         case 'SET_USERNAME':
-            return Object.assign({}, state, {
-                username: action.username
-            })
+            return {...state, username: action.username}
         case 'SET_LOGGED_IN':
-            return Object.assign({}, state, {
-                isLoggedIn: action.isLoggedIn
-            })
+            return {...state, isLoggedIn: action.isLoggedIn }
         default:
             return state
     }
@@ -28,9 +22,7 @@ function languageReducer(state = {
 }, action) {
     switch (action.type) {
         case 'SET_LANGUAGE':
-            return Object.assign({}, state, {
-                language: action.language
-            })
+            return {...state, language: action.language }
         default:
             return state
     }
@@ -42,13 +34,9 @@ function latLngReducer(state = {
 }, action) {
     switch (action.type) {
         case 'SET_ORIGIN_LATLNG':
-            return Object.assign({}, state, {
-                originLatLng: action.originLatLng
-            })
+            return {...state, originLatLng: action.originLatLng }
         case 'SET_DESTINATION_LATLNG':
-            return Object.assign({}, state, {
-                destinationLatLng: action.destinationLatLng
-            })
+            return {...state, destinationLatLng: action.destinationLatLng }
         default:
             return state
     }
@@ -60,13 +48,9 @@ function addressReducer(state = {
 }, action) {
     switch (action.type) {
         case 'SET_ORIGIN':
-            return Object.assign({}, state, {
-                origin: action.origin
-            })
+            return {...state, origin: action.origin }
         case 'SET_DESTINATION':
-            return Object.assign({}, state, {
-                destination: action.destination
-            })
+            return {...state, destination: action.destination }
         default:
             return state
     }

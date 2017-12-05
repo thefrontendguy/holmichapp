@@ -33,6 +33,8 @@ function translate(newString) {
             "PLACEHOLDER_USERNAME": "Your email",
             "ENTER_PASSWORD": "Enter password",
             "PLACEHOLDER_PASSWORD": "Your password",
+
+            "NEW_HERE": "New here? Create a new account.",
         },
         "de": {
             "APPNAME" : "HolMichApp",
@@ -66,6 +68,8 @@ function translate(newString) {
             "PLACEHOLDER_USERNAME": "Email",
             "ENTER_PASSWORD": "Passwort eingeben",
             "PLACEHOLDER_PASSWORD": "Passwort",
+            
+            "NEW_HERE": "Neu hier? Registriere einen neuen Benutzer.",
         }
     }
 return translations;

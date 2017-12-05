@@ -1,22 +1,25 @@
 import React from 'react';
 import axios from 'axios';
 
-import {
-    Redirect
-} from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 import { store } from '../redux/store';
-import { email, username, isLoggedIn } from '../redux/actions';
 import text from '../translate';
 
-class Login extends React.Component {
+import { Button } from '../components/InputElements';
+
+class Register extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            username: '',
             email: '',
             password: '',
             user: null
         }
+    }
+    updateUsername = (e) => {
+        this.setState({ username: e.target.value });
     }
     updateEmail = (e) => {
         this.setState({ email: e.target.value });
@@ -24,25 +27,13 @@ class Login extends React.Component {
     updatePassword = (e) => {
         this.setState({ password: e.target.value });
     }
-    findUser = () => {
+    createUser = () => {
         var user = {}
+        user.username = this.state.username;
         user.email = this.state.email;
         user.password = this.state.password;
-        axios.post(`http://localhost:3001/user/login`, user)
+        axios.post(`http://localhost:3001/user/create`, user)
             .then(res => {
-                this.setState({ user: res.data, password: '' });
-                store.dispatch(email(
-                    {
-                        email: this.state.email
-                    }))
-                store.dispatch(username(
-                    {
-                        username: this.state.user.username
-                    }))
-                store.dispatch(isLoggedIn(
-                    {
-                        isLoggedIn: true
-                    }))
 
             })
             .catch(error => console.log(error.response))
@@ -50,21 +41,28 @@ class Login extends React.Component {
 
     render() {
         var lang = String(store.getState().lang.language);
-
         return (
             <div className='content login-form'>
 
                 {this.state.user === null ? '' : <Redirect push to="/login" user={this.state.user} />}
                 <form>
-                    <h1>ee {text()[lang].REGISTER_FORM_TITLE}</h1>
-                    <h1>ee {text()[lang].LOGIN_FORM_TITLE}</h1>
+                    <h1>{text()[lang].REGISTER_FORM_TITLE}</h1>
 
                     <label htmlFor='user'>{text()[lang].ENTER_USERNAME}</label>
                     <input
-                        type='email'
+                        type='text'
                         className='input username'
-                        name='email'
+                        name='username'
                         placeholder={text()[lang].PLACEHOLDER_USERNAME}
+                        onChange={this.updateUsername}
+                    />
+
+                    <label htmlFor='user'>{text()[lang].ENTER_EMAIL}</label>
+                    <input
+                        type='email'
+                        className='input email'
+                        name='email'
+                        placeholder={text()[lang].PLACEHOLDER_EMAIL}
                         onChange={this.updateEmail}
                     />
 
@@ -76,15 +74,26 @@ class Login extends React.Component {
                         placeholder={text()[lang].PLACEHOLDER_PASSWORD}
                         onChange={this.updatePassword}
                     />
+                    <Button
+                        type='button'
+                        text={text()[lang].REGISTER}
+                        myStyle='submit register'
+                        click={this.createUser}
+                    />
 
-                    <button type='button' className='button submit' onClick={this.findUser} >
-                        {text()[lang].LOGIN}
-                    </button>
-
+                    <hr />
+                    {text()[lang].ALREADY_HAS_ACCOUNT}
+                    <Link to='/login'>
+                            <Button
+                                type='button'
+                                text={text()[lang].LOGIN}
+                                myStyle='submit signin'
+                            />
+                        </Link>
                 </form>
             </div>
         )
     }
 }
 
-export default Login;
+export default Register;

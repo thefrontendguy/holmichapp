@@ -3,9 +3,10 @@ import { store } from '../redux/store';
 
 import text from '../translate';
 
+import LanguageSwitcher from '../containers/LanguageSwitcher';
+
 class Profile extends React.Component {
     render() {
-        console.log("profile");
         var username = store.getState().user.username.username;
         var isLoggedIn = store.getState().user.isLoggedIn.isLoggedIn;
         var lang = String(store.getState().lang.language);
@@ -16,6 +17,8 @@ class Profile extends React.Component {
                 <h1>
                     {isLoggedIn ? `You are logged in as ${username}` : "please log in or register"}
                 </h1>
+    
+                <LanguageSwitcher />
             </div>
         )
     }

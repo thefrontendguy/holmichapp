@@ -4,6 +4,11 @@
   transition: .15s all linear;
 }
 
+// reset some things first
+input,
+button {
+  outline: none;
+}
 $font_sm: 9px;
 $font_m: 13px;
 $font_l: 17px;
@@ -17,6 +22,16 @@ a {
   text-decoration: none;
   color: inherit;
 }
+// lines
+hr {
+  background: #dedede3d;
+  width: 100%;
+  margin: 20px 0;
+  border-style: dotted;
+  border-width: 1px;
+  border-color: $col1;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -27,21 +42,21 @@ body {
 }
 #root {
   display: flex;
-  width: 100vw;
+  //height: 100vh;
   justify-content: center;
 }
 #app {
   display: flex;
   flex-direction: column;
   
-  height: 100vh;
+  //height: 100vh;
   flex: 1;
   max-width: 1000px;
   
   box-shadow: 0 2px 13px #b9b9b9;
 
   & .content {
-    padding: 20px 50px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -67,6 +82,12 @@ body {
   & .appname {
     display: flex;
     align-items: center;
+
+    &:before {
+      content: "\f232";
+      font-family: 'Fontawesome';
+      font-size: 130%;
+  }
     
     & .title_slogan {
       margin-left: 10px;
@@ -103,10 +124,6 @@ body {
       }
     }
   }
-  .language-switcher {
-    border: none;
-    color: $col3;
-  }
 }
 
 .map-complete {
@@ -121,6 +138,7 @@ body {
 
     box-shadow: 12px 0px 10px -8px #c5c5c5;
     z-index: 1;
+    box-sizing: border-box;
     
     & > .title {
       text-align: center;
@@ -142,11 +160,6 @@ body {
         display: flex;
         margin-bottom: 10px;
         
-        & input {
-          flex: 1;
-          position: initial !important;
-          width: initial !important;
-        }
         & button {
           padding: 10px !important;
         }
@@ -171,12 +184,21 @@ body {
   }
 }
 
+.profile {
+  & .language-switcher {
+    border: 1px solid $col3;
+    color: $col3;
+    margin-left: 15px;
+    max-width: 100px;
+  }
+}
 .login-form {
   & form {
     display: flex;
     flex-direction: column;
     & .input {
       margin-bottom: 10px;
+      border: 1px solid $col1;
     }
   }
 }

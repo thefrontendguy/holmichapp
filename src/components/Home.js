@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { store } from '../redux/store';
-import text from './translate';
+import text from '../translate';
 
 class Home extends React.Component {
     render() {

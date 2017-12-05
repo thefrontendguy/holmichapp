@@ -1,11 +1,11 @@
 import React from 'react'
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 
-import FontAwesome from 'react-fontawesome';
-
 import { store } from '../redux/store';
 import { originLatLng, destinationLatLng, origin, destination } from '../redux/actions';
 import text from '../translate';
+
+import { Button } from '../components/InputElements';
 
 class MapAddressInput extends React.Component {
   handleFormSubmit = (event) => {
@@ -15,17 +15,13 @@ class MapAddressInput extends React.Component {
       .then(results => getLatLng(results[0]))
       .then(latLng => {
         store.dispatch(originLatLng({ originLatLng: latLng }));
-        console.log('Success', latLng)
-        console.log(store.getState().route.originLatLng.originLatLng)
       })
       .catch(error => console.error('Error', error))
-      
+
     geocodeByAddress(store.getState().address.destination.destination)
-    .then(results => getLatLng(results[0]))
-    .then(latLng => {
-      store.dispatch(destinationLatLng({ destinationLatLng: latLng }));
-      console.log('Success', latLng)
-      console.log(store.getState().route.destinationLatLng.destinationLatLng)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => {
+        store.dispatch(destinationLatLng({ destinationLatLng: latLng }));
       })
       .catch(error => console.error('Error', error))
   }
@@ -50,21 +46,20 @@ class MapAddressInput extends React.Component {
       <form className="map-address-input" onSubmit={this.handleFormSubmit}>
         <div className="label">{text()[lang].FROM}</div>
         <PlacesAutocomplete
-          className="map-input-container"
+          className="map-input-container origin"
           inputProps={inputPropsDestination} />
 
         <div className="label">{text()[lang].DESTINATION}</div>
         <PlacesAutocomplete
-          className="map-input-container"
+          class="map-input-container destination"
           inputProps={inputPropsOrigin} />
 
-        <button className="button submit" type="submit">
-          <FontAwesome
-            className='icon'
-            name='rocket'
-          />
-          {text()[lang].SUBMIT_ADDRESSES}
-        </button>
+        <Button
+          type='button'
+          myStyle='submit submit-addresses'
+          text={text()[lang].SUBMIT_ADDRESSES}
+        />
+
         {(this.props.distAndDur !== null)
           ? <div>
             <p>

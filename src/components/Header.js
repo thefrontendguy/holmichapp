@@ -1,27 +1,25 @@
 import React from 'react';
-import FontAwesome from 'react-fontawesome';
 
-import {
-    NavLink
-} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { store } from '../redux/store';
 
-import LanguageSwitcher from '../containers/LanguageSwitcher';
 import text from '../translate';
 
 class MainLayout extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            true: true,
+            false: false
+        }
+    }
     render() {
         var lang = String(store.getState().lang.language);
-        
+        const isLoggedIn = store.getState().user.isLoggedIn;
         return (
             <div className='header'>
                 <NavLink to='/' className='appname'>
-                    <FontAwesome
-                        className='icon'
-                        name='rocket'
-                        size='2x'
-                    />
                     <div className='title_slogan'>
                         <div className='title'>
                             {text()[lang].APPNAME}
@@ -32,14 +30,19 @@ class MainLayout extends React.Component {
                     </div>
                 </NavLink>
                 <div className='links'>
-                    <NavLink to='/route' className='route'>{text()[lang].ROUTE}</NavLink>
-                    <NavLink to='/login' className='login'>{text()[lang].LOGIN}</NavLink>
-                    <NavLink to='/register' className='register'>{text()[lang].REGISTER}</NavLink>
-                    <NavLink to='/profile' className='profile'>{text()[lang].PROFILE}</NavLink>
+                    {isLoggedIn
+                        ? <div>
+                            <NavLink to='/route' className='route'>{text()[lang].ROUTE}</NavLink><NavLink to='/profile' className='profile'>{text()[lang].PROFILE}</NavLink>
+                        </div>
+                        : <div>
+                            <NavLink to='/route' className='route'>{text()[lang].ROUTE}</NavLink>
+                            <NavLink to='/login' className='login'>{text()[lang].LOGIN}</NavLink>
+                            <NavLink to='/register' className='register'>{text()[lang].REGISTER}</NavLink>
+                        </div>
+                    }
                 </div>
-                <LanguageSwitcher />
-            </div>
-        )
+                </div>
+                )
     }
 }
 

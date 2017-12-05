@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Lora|Open+Sans");
+input,
+button {
+  outline: none; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Lora', serif;
   line-height: 1.15; }
@@ -6,6 +10,14 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: inherit; }
+
+hr {
+  background: #dedede3d;
+  width: 100%;
+  margin: 20px 0;
+  border-style: dotted;
+  border-width: 1px;
+  border-color: #A9CAF0; }
 
 body {
   padding: 0;
@@ -17,18 +29,16 @@ body {
 
 #root {
   display: flex;
-  width: 100vw;
   justify-content: center; }
 
 #app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   flex: 1;
   max-width: 1000px;
   box-shadow: 0 2px 13px #b9b9b9; }
   #app .content {
-    padding: 20px 50px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column; }
@@ -48,6 +58,10 @@ body {
   .header .appname {
     display: flex;
     align-items: center; }
+    .header .appname:before {
+      content: "\f232";
+      font-family: 'Fontawesome';
+      font-size: 130%; }
     .header .appname .title_slogan {
       margin-left: 10px;
       text-transform: uppercase; }
@@ -70,9 +84,6 @@ body {
       .header .links a:hover, .header .links a.active {
         background: #fff;
         color: #1DA79C; }
-  .header .language-switcher {
-    border: none;
-    color: #1DA79C; }
 
 .map-complete {
   flex: 1;
@@ -81,7 +92,8 @@ body {
     width: 300px;
     padding: 20px;
     box-shadow: 12px 0px 10px -8px #c5c5c5;
-    z-index: 1; }
+    z-index: 1;
+    box-sizing: border-box; }
     .map-complete .map-infos > .title {
       text-align: center;
       font-weight: bold;
@@ -96,10 +108,6 @@ body {
         flex: 1;
         display: flex;
         margin-bottom: 10px; }
-        .map-complete .map-infos .map-address-input #PlacesAutocomplete__root input {
-          flex: 1;
-          position: initial !important;
-          width: initial !important; }
         .map-complete .map-infos .map-address-input #PlacesAutocomplete__root button {
           padding: 10px !important; }
   .map-complete .map {
@@ -114,11 +122,18 @@ body {
   .map-complete .map-element {
     flex: 1; }
 
+.profile .language-switcher {
+  border: 1px solid #1DA79C;
+  color: #1DA79C;
+  margin-left: 15px;
+  max-width: 100px; }
+
 .login-form form {
   display: flex;
   flex-direction: column; }
   .login-form form .input {
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    border: 1px solid #A9CAF0; }
 
 input,
 .input {
@@ -137,17 +152,27 @@ input,
   justify-content: center;
   align-items: center;
   outline: 0;
+  margin: 5px 0;
   transition: .15s all ease-in-out;
   border-radius: 2px; }
-  .button .icon {
-    margin-right: 13px;
-    font-size: inherit; }
-
-.button.submit {
-  background: #CE391F;
-  color: #fff;
-  border: none;
-  padding: 15px; }
-  .button.submit:hover {
-    background: #a22d18;
-    cursor: pointer; }
+  .button.submit {
+    background: #CE391F;
+    color: #fff;
+    border: none;
+    padding: 15px; }
+    .button.submit:hover {
+      background: #a22d18;
+      cursor: pointer; }
+    .button.submit::before {
+      font-family: "Fontawesome";
+      margin-right: 5px;
+      font-size: 110%; }
+    .button.submit.submit-addresses:before {
+      content: "\f277";
+      font-family: "Fontawesome"; }
+    .button.submit.signin::before {
+      content: "\f007";
+      font-family: "Fontawesome"; }
+    .button.submit.register::before {
+      content: "\f234";
+      font-family: "Fontawesome"; }

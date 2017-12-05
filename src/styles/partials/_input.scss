@@ -37,20 +37,40 @@ input,
     align-items: center;
 
     outline: 0;
+    margin: 5px 0;
+
     @include transition;
     @include border_radius;
-    & .icon {
-        margin-right: 13px;
-        font-size: inherit;
-    }
-}
-.button.submit {
-    background: $col5;
-    color: $col5_c;
-    @include button;
-    
-    &:hover {
-        background: darken($col5, 10);
-        @include pointer;
+
+    &.submit {
+        background: $col5;
+        color: $col5_c;
+        @include button;
+        
+        &:hover {
+            background: darken($col5, 10);
+            @include pointer;
+        }
+        &::before {
+            font-family: "Fontawesome";
+            margin-right: 5px;
+            font-size: 110%;
+        }
+        &.submit-addresses:before {
+            content: "\f277";
+            font-family: "Fontawesome";
+        }
+        &.signin {
+            &::before {
+                content: "\f007";                
+                font-family: "Fontawesome";
+            }
+        }
+        &.register {
+            &::before {
+                content: "\f234";                
+                font-family: "Fontawesome";
+            }
+        }
     }
 }

@@ -1,13 +1,13 @@
-var text = (replace) => {
-    return {
+function translate(newString) { 
+    const translations = {
         "en": {
             "APPNAME" : "Some Name",
             "SLOGAN" : "the best app ever",
             
-            "HOME_TITLE": `A title for ${replace} the home screen`,
+            "HOME_TITLE": "A title for RRRR the home screen",
             "HOME_TEXT": "A text for the home",
 
-            "GREETING" : `Hello ${replace}, how are you?`,
+            "GREETING" : `Hello ${newString}, how are you?`,
             
             "ROUTE": "Route Planner",
             "LOGIN": "Sign in",
@@ -27,11 +27,15 @@ var text = (replace) => {
             "ESTIMATED_DURATION": "Estimated duration: ",
             "ROUTE_IMPOSSIBLE": "It is not possible to go there by car",
             
-            "LOGIN_FORM_TITLE": "This is the best login form ever",
-            "ENTER_USERNAME": "Enter username or email",
-            "PLACEHOLDER_USERNAME": "Your username or email",
+            "LOGIN_FORM_TITLE": "Log In",
+            "REGISTER_FORM_TITLE": "Register",
+            "ENTER_USERNAME": "Enter email",
+            "PLACEHOLDER_USERNAME": "Your email",
             "ENTER_PASSWORD": "Enter password",
             "PLACEHOLDER_PASSWORD": "Your password",
+            
+            "NEW_HERE": "New here? Create a new account.",
+            "ALREADY_HAS_ACCOUNT": "Already have an account? Sign in here.",
         },
         "de": {
             "APPNAME" : "HolMichApp",
@@ -39,7 +43,7 @@ var text = (replace) => {
 
             "HOME_TITLE": "Das ist die Startseite",
             "HOME_TEXT": "Irgend ein Text auf der Startseite",
-            "GREETING" : "Hallo %addvar%, wie geht es dir?",
+            "GREETING" : `Hallo ${newString}, wie geht es dir?`,
             
             "ROUTE": "Zum Routenplaner",
             "LOGIN": "Einloggen",
@@ -47,7 +51,7 @@ var text = (replace) => {
 
             "PROFILE": "Dein Profil",
             "PROFILE_TITLE": "Die Überschrift des Profils",
-            "PROFILE_GREETING": "Hallo %addvar%, geht es dir gut?",
+            "PROFILE_GREETING": `Hallo ${newString}, geht es dir gut?`,
             
             "MAPS_INFO_TITLE": "Bitte gib den Startpunk und das Ziel deiner gewünschten Route an",
             "FROM": "Von",
@@ -59,13 +63,17 @@ var text = (replace) => {
             "ESTIMATED_DURATION": "Geschätzte Fahrtdauer: ",
             "ROUTE_IMPOSSIBLE": "It is not possible to go there by car",
 
-            "LOGIN_FORM_TITLE": "Das beste Login-Forumlar der Welt",
-            "ENTER_USERNAME": "Benutzernamen oder Email eingeben",
-            "PLACEHOLDER_USERNAME": "Benutzername oder Email",
+            "LOGIN_FORM_TITLE": "Einloggen",
+            "REGISTER_FORM_TITLE": "Registrieren",
+            "ENTER_USERNAME": "Email eingeben",
+            "PLACEHOLDER_USERNAME": "Email",
             "ENTER_PASSWORD": "Passwort eingeben",
             "PLACEHOLDER_PASSWORD": "Passwort",
+            
+            "NEW_HERE": "Neu hier? Registriere einen neuen Benutzer.",
+            "ALREADY_HAS_ACCOUNT": "Bereits einen Account? Einfach anmelden.",
         }
     }
+return translations;
 }
-
-export default text;
+export default translate;

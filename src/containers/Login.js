@@ -2,8 +2,11 @@ import React from 'react';
 import axios from 'axios';
 
 import {
+    Link,
     Redirect
 } from "react-router-dom";
+
+import { Button } from '../components/InputElements';
 
 import { store } from '../redux/store';
 import { email, username, isLoggedIn } from '../redux/actions';
@@ -30,6 +33,7 @@ class Login extends React.Component {
         user.password = this.state.password;
         axios.post(`http://localhost:3001/user/login`, user)
             .then(res => {
+                console.log(res)
                 this.setState({ user: res.data, password: '' });
                 store.dispatch(email(
                     {
@@ -48,7 +52,11 @@ class Login extends React.Component {
             .catch(error => console.log(error.response))
     }
 
-    render() {  
+    clickButton = () => {
+        alert("clicked");
+    }
+
+    render() {
         var lang = String(store.getState().lang.language);
 
         return (
@@ -76,10 +84,22 @@ class Login extends React.Component {
                         onChange={this.updatePassword}
                     />
 
-                    <button type='button' className='button submit' onClick={this.findUser} >
-                        {text()[lang].LOGIN}
-                    </button>
+                    <Button
+                        type='button'
+                        text={text()[lang].LOGIN}
+                        myStyle='submit signin'
+                        click={this.findUser}
+                    />
 
+                    <hr />
+                    {text()[lang].NEW_HERE}
+                    <Link to='/register'>
+                        <Button
+                            type='button'
+                            text={text()[lang].REGISTER}
+                            myStyle='submit register'
+                        />
+                    </Link>
                 </form>
             </div>
         )
