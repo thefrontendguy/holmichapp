@@ -1,22 +1,25 @@
 function translate(newString) { 
     const translations = {
         "en": {
+            "APP_LANGUAGE": "The language of this app", 
             "APPNAME" : "Some Name",
             "SLOGAN" : "the best app ever",
             
             "HOME_TITLE": "A title for RRRR the home screen",
             "HOME_TEXT": "A text for the home",
-
+            
             "GREETING" : `Hello ${newString}, how are you?`,
             
             "ROUTE": "Route Planner",
             "LOGIN": "Sign in",
+            "LOGOUT_MESSAGE": "Log out from this computer?",
+            "LOGOUT": "Log out",
             "REGISTER": "Register",
             
-            "PROFILE": "Your Profile",
+            "PROFILE": "Cockpit",
             "PROFILE_TITLE": "Profile Title",
             "PROFILE_GREETING": "Some greetings for the logged in user",
-
+            
             "MAPS_INFO_TITLE": "Please add origin and destination addresses, to calculate the route",
             "FROM": "From",
             "FILL_FORM": "Please fill the form, to see distance and duration.",
@@ -38,6 +41,7 @@ function translate(newString) {
             "ALREADY_HAS_ACCOUNT": "Already have an account? Sign in here.",
         },
         "de": {
+            "APP_LANGUAGE": "Die Sprache der App", 
             "APPNAME" : "HolMichApp",
             "SLOGAN" : "Die Abhol-App",
 
@@ -47,9 +51,11 @@ function translate(newString) {
             
             "ROUTE": "Zum Routenplaner",
             "LOGIN": "Einloggen",
+            "LOGOUT_MESSAGE": "Von diesem Computer abmelden?",
+            "LOGOUT": "Ausloggen",
             "REGISTER": "Registrieren",
 
-            "PROFILE": "Dein Profil",
+            "PROFILE": "Cockpit",
             "PROFILE_TITLE": "Die Überschrift des Profils",
             "PROFILE_GREETING": `Hallo ${newString}, geht es dir gut?`,
             

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Lora|Open+Sans");
 input,
 button {
@@ -25,7 +26,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
   line-height: 1.5;
-  color: #CE391F; }
+  color: #1DA79C; }
 
 #root {
   display: flex;
@@ -42,6 +43,13 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column; }
+    #app .content .subtitle {
+      font-weight: bold;
+      font-size: 115%;
+      padding-top: 10px;
+      padding-bottom: 5px; }
+    #app .content .text {
+      padding-bottom: 5px; }
     #app .content form {
       max-width: 400px; }
 
@@ -72,18 +80,32 @@ body {
   .header .links {
     font-size: 13px;
     display: flex; }
-    .header .links .login-register {
-      flex: 1;
+    .header .links div {
       display: flex; }
-      .header .links .login-register a {
-        flex: 1; }
-    .header .links a {
-      padding: 10px 15px;
-      margin-right: 2px;
-      transition: .15s all linear; }
-      .header .links a:hover, .header .links a.active {
-        background: #fff;
-        color: #1DA79C; }
+      .header .links div .login-register {
+        flex: 1;
+        display: flex; }
+        .header .links div .login-register a {
+          flex: 1; }
+      .header .links div a {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        margin-right: 2px;
+        transition: .15s all linear; }
+        .header .links div a:hover, .header .links div a.active {
+          background: #fff;
+          color: #CE391F; }
+        .header .links div a.route::before {
+          content: "";
+          font-family: "Fontawesome";
+          font-size: 145%;
+          margin-right: 5px; }
+        .header .links div a.profile::before {
+          content: "";
+          font-family: "Fontawesome";
+          font-size: 145%;
+          margin-right: 5px; }
 
 .map-complete {
   flex: 1;
@@ -98,7 +120,7 @@ body {
       text-align: center;
       font-weight: bold;
       margin-bottom: 10px;
-      color: #1DA79C; }
+      color: #CE391F; }
     .map-complete .map-infos .map-address-input {
       display: flex;
       flex-direction: column; }
@@ -123,10 +145,9 @@ body {
     flex: 1; }
 
 .profile .language-switcher {
-  border: 1px solid #1DA79C;
-  color: #1DA79C;
-  margin-left: 15px;
-  max-width: 100px; }
+  border: 1px solid #CE391F;
+  color: #CE391F;
+  max-width: 150px; }
 
 .login-form form {
   display: flex;
@@ -138,14 +159,14 @@ body {
 input,
 .input {
   outline: 0;
-  border: 1px solid rgba(29, 167, 156, 0.5);
-  box-shadow: inset 0 0 2px 2px rgba(29, 167, 156, 0.15);
+  border: 1px solid rgba(206, 57, 31, 0.5);
+  box-shadow: inset 0 0 2px 2px rgba(206, 57, 31, 0.15);
   border-radius: 2px;
   transition: .15s all ease-in-out;
   padding: 10px; }
   input:hover,
   .input:hover {
-    border: 1px solid #1DA79C; }
+    border: 1px solid #CE391F; }
 
 .button {
   display: flex;
@@ -154,15 +175,15 @@ input,
   outline: 0;
   margin: 5px 0;
   transition: .15s all ease-in-out;
-  border-radius: 2px; }
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
+  padding: 15px; }
   .button.submit {
-    background: #CE391F;
-    color: #fff;
-    border: none;
-    padding: 15px; }
+    background: #1DA79C;
+    color: #fff; }
     .button.submit:hover {
-      background: #a22d18;
-      cursor: pointer; }
+      background: #157c73; }
     .button.submit::before {
       font-family: "Fontawesome";
       margin-right: 5px;
@@ -176,3 +197,6 @@ input,
     .button.submit.register::before {
       content: "\f234";
       font-family: "Fontawesome"; }
+  .button.cancel {
+    background: #CE391F;
+    color: #fff; }

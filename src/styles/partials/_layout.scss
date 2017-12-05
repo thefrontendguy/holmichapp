@@ -4,6 +4,12 @@
   transition: .15s all linear;
 }
 
+@mixin headerIcon($code) {
+  content: $code;
+  font-family: "Fontawesome";
+  font-size: 145%;
+  margin-right: 5px;
+}
 // reset some things first
 input,
 button {
@@ -61,6 +67,15 @@ body {
     justify-content: center;
     flex-direction: column;
 
+    & .subtitle {
+      font-weight: bold; 
+      font-size: 115%;
+      padding-top: 10px;
+      padding-bottom: 5px;
+    }
+    & .text {
+      padding-bottom: 5px;
+    }
     & form {
       max-width: 400px;
     }
@@ -74,8 +89,8 @@ body {
 
   font-size: $font_l;
   
-  background: $col3;
-  color: $col3_c;    
+  background: $col5;
+  color: $col5_c;    
   box-shadow: 0 4px 8px -2px rgba(5, 62, 57, 0.8);
   z-index: 1;
   
@@ -104,24 +119,41 @@ body {
     font-size: $font_m;
     display: flex;
 
-    & .login-register {
-      flex: 1;
+    & div {
       display: flex;
-
-      & a {
+      & .login-register {
         flex: 1;
+        display: flex;
+        
+        & a {
+          flex: 1;
+        }
       }
+      & a {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        margin-right: 2px;
+        @include transition;
+  
+        &:hover,
+        &.active {
+          background: $col3_c;
+          color: $col3;
+        }
+  
+        &.route {
+          &::before {
+            @include headerIcon("\F277")
+          }
+        }
+  
+        &.profile {
+          &::before {
+            @include headerIcon("\f14e")
+          }
+        }
     }
-    & a {
-      padding: 10px 15px;
-      margin-right: 2px;
-      @include transition;
-
-      &:hover,
-      &.active {
-        background: $col3_c;
-        color: $col3;
-      }
     }
   }
 }
@@ -188,8 +220,7 @@ body {
   & .language-switcher {
     border: 1px solid $col3;
     color: $col3;
-    margin-left: 15px;
-    max-width: 100px;
+    max-width: 150px;
   }
 }
 .login-form {
