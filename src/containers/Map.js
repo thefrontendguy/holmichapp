@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import MapRender from '../containers/MapRender';
-import MapAddressInput from '../containers/MapAddressInput';
+import MapRender from './MapRender';
+import MapAddressInput from './MapAddressInput';
 
 import { store } from '../redux/store';
 import text from '../translate';
+
+import Share from './Share';
 
 class Map extends Component {
   constructor(props) {
@@ -28,12 +30,14 @@ class Map extends Component {
         <div className="map-infos">
           <div className="title">{text()[lang].MAPS_INFO_TITLE}</div>
           <MapAddressInput updateMapData={this.updateMapData} unit={' km'} />
+          <Share origin={this.state.origin} destination={this.state.destination} />
         </div>
         <MapRender
           originLatLng={this.state.origin}
           destinationLatLng={this.state.destination}
           className="map"
           localization={lang} />
+
       </div>
     );
   }

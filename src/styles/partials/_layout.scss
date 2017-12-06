@@ -43,7 +43,7 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;  
   font-size: $font_m;
-  line-height: 1.5;
+  line-height: 1.15;
   color: $col5;
 }
 #root {
@@ -245,5 +245,20 @@ body {
       margin-bottom: 10px;
       border: 1px solid $col1;
     }
+  }
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;    
+  flex-wrap: wrap;
+  text-align: center;
+  & .title {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+  & .button {
+    padding: 5px;    
   }
 }

@@ -32,7 +32,9 @@ class Register extends React.Component {
         user.username = this.state.username;
         user.email = this.state.email;
         user.password = this.state.password;
-        axios.post(`http://localhost:3001/user/create`, user)
+        var requrl = window.location.hostname === "localhost" ?
+            "localhost:3001" : window.location.hostname;
+        axios.post(`http://${requrl}/user/create`, user)
             .then(res => {
 
             })
@@ -84,12 +86,12 @@ class Register extends React.Component {
                     <hr />
                     {text()[lang].ALREADY_HAS_ACCOUNT}
                     <Link to='/login'>
-                            <Button
-                                type='button'
-                                text={text()[lang].LOGIN}
-                                myStyle='submit signin'
-                            />
-                        </Link>
+                        <Button
+                            type='button'
+                            text={text()[lang].LOGIN}
+                            myStyle='submit signin'
+                        />
+                    </Link>
                 </form>
             </div>
         )

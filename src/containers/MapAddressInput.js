@@ -8,8 +8,12 @@ import { Button } from '../components/InputElements';
 import Autocomplete from './Autocomplete';
 
 class MapAddressInput extends React.Component {
+  state = {
+    address: ''
+  }
   changeOriginAddress = (address, latLng) => {
     store.dispatch(origin({ origin: address }));
+    this.setState({address: address});
     store.dispatch(originLatLng({ originLatLng: latLng }));
   }
   changeDestinationAddress = (address, latLng) => {
@@ -18,6 +22,7 @@ class MapAddressInput extends React.Component {
   }
   calculate = () => {
     console.log(this.props)
+    console.log(this.state.address)
   }
   render() {
     var lang = String(store.getState().lang.language);

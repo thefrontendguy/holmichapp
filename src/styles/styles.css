@@ -25,7 +25,7 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.15;
   color: #1DA79C; }
 
 #root {
@@ -172,6 +172,18 @@ body {
   .login-form form .input {
     margin-bottom: 10px;
     border: 1px solid #A9CAF0; }
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center; }
+  .share-buttons .title {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 0; }
+  .share-buttons .button {
+    padding: 5px; }
 
 input,
 .input {
