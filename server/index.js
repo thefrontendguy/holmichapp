@@ -22,12 +22,12 @@ passport.deserializeUser((id, done) => {
 }); */
 
 // set up session
-var session = require('express-session');
+/*var session = require('express-session');
 app.use(session({
     secret: secret,
     resave: true,
     saveUninitialized: false
-}));
+}));*/
 
 // set up body-parser
 var bodyParser = require("body-parser");
