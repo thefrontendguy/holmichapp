@@ -51,10 +51,10 @@ app.use("/user/", userRoutes);
 app.use("/message/", messageRoutes);
 
 // set up error middleware
-app.use(function (req, res) {
+/*app.use(function (req, res) {
     res.statusCode = 404;
     res.send("Page doesn't exist");
-});
+});*/
 
 // set up server
 app.listen(port, () => {
