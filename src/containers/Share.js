@@ -60,22 +60,22 @@ export default class Share extends Component {
         const destination = this.props.destination;
         var lang = String(store.getState().lang.language);
         const title = text(origin, destination)[lang].ASK_SOCIAL_TITLE;
-        const message = text(origin, destination)[lang].ASK_SOCIAL_TITLE;
+        const message = text(origin, destination)[lang].ASK_SOCIAL_MESSAGE;
         return (
             <div className='share-buttons'>
                 <div className='title'>{title}</div>
                 <div className='button'>
-                    <WhatsappShareButton children={message} url={shareUrl} >
+                    <WhatsappShareButton title={message} url={shareUrl} >
                         <WhatsappIcon size={32} round={true} />
                     </WhatsappShareButton>
                 </div>
                 <div className='button'>
-                    <FacebookShareButton children={message} url={shareUrl} >
+                    <FacebookShareButton quote={message} url={shareUrl} >
                         <FacebookIcon size={32} round={true} />
                     </FacebookShareButton>
                 </div>
                 <div className='button'>
-                    <TwitterShareButton children={message} url={shareUrl} >
+                    <TwitterShareButton title={message} url={shareUrl} >
                         <TwitterIcon size={32} round={true} />
                     </TwitterShareButton>
                 </div>
