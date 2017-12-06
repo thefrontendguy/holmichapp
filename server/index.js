@@ -45,7 +45,7 @@ var port = process.env.PORT || 3001;
 app.set('port', port);
 
 // set up a static server
-app.use("/", express.static("/build"));
+app.use(express.static("build"));
 
 app.use("/user/", userRoutes);
 app.use("/message/", messageRoutes);
