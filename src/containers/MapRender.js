@@ -29,8 +29,13 @@ const originLng = 13.404953999999975;
 const destinationLat = 48.856614;
 const destinationLng = 2.3522219000000177;
 
-const storeOriginLatLng = '';
-const storeDestinationLatLng = '';
+console.log(this.props)
+
+/* const originLatLng = {lat: -34.397, lng: 150.644};
+const destinationLatLng = {lat: -34.317, lng: 150.424}; */
+/* 
+const originLatLng = this.props.originLatLng ? this.props.originLatLng : '';
+const destinationLatLng = this.props.destinationLatLng ? this.props.destinationLatLng : ''; */
 
 
 
@@ -50,8 +55,10 @@ const Map = compose(
       const DirectionsService = new google.maps.DirectionsService();
 
       DirectionsService.route({
-        origin: new google.maps.LatLng(originLat, originLng),
-        destination: new google.maps.LatLng(destinationLat, destinationLng),
+        origin: new google.maps.LatLng(
+          this.props.originLatLng ? this.props.originLatLng.lat : originLat, this.props.originLatLng ? this.props.originLatLng.lng : originLng),
+        destination: new google.maps.LatLng(
+          this.props.destinationLatLng ? this.props.destinationLatLng.lat : destinationLat, this.props.destinationLatLng ? this.props.destinationLatLng.lng : destinationLng),
         travelMode: google.maps.TravelMode.DRIVING,
       }, (result, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
@@ -63,13 +70,15 @@ const Map = compose(
         }
       })
     },
-    componentWillReceiveProps(props) {
-      console.log(this.props)
+    componentWillReceiveProps(newProps) {
+      console.log(newProps)
       const DirectionsService = new google.maps.DirectionsService();
 
       DirectionsService.route({
-        origin: new google.maps.LatLng(originLat, originLng),
-        destination: new google.maps.LatLng(destinationLat, destinationLng),
+        origin: new google.maps.LatLng(
+          newProps.originLatLng ? newProps.originLatLng.lat : originLat, newProps.originLatLng ? newProps.originLatLng.lng : originLng),
+        destination: new google.maps.LatLng(
+          newProps.destinationLatLng ? newProps.destinationLatLng.lat : destinationLat, newProps.destinationLatLng ? newProps.destinationLatLng.lng : destinationLng),
         travelMode: google.maps.TravelMode.DRIVING,
       }, (result, status) => {
         if (status === google.maps.DirectionsStatus.OK) {

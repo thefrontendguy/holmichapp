@@ -12,14 +12,18 @@ class Map extends Component {
     super(props);
     this.state = {
       origin: '',
-      destination: ''
+      destination: '',
+      originLatLng: '',
+      destinationLatLng: ''
     }
   }
-  updateMapData = (origin, destination) => {
+  updateMapData = (origin, destination, originLatLng, destinationLatLng) => {
     this.setState({ origin: origin });
     this.setState({ destination: destination });
-    console.log(origin)
-    console.log(destination)
+    this.setState({ originLatLng: originLatLng });
+    this.setState({ destinationLatLng: destinationLatLng });
+    console.log(originLatLng)
+    console.log(destinationLatLng)
   }
   render() {
     console.log(this.state.origin)
@@ -33,8 +37,8 @@ class Map extends Component {
           <Share origin={this.state.origin} destination={this.state.destination} />
         </div>
         <MapRender
-          originLatLng={this.state.origin}
-          destinationLatLng={this.state.destination}
+          originLatLng={this.state.originLatLng}
+          destinationLatLng={this.state.destinationLatLng}
           className="map"
           localization={lang} />
 

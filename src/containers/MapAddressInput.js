@@ -9,20 +9,35 @@ import Autocomplete from './Autocomplete';
 
 class MapAddressInput extends React.Component {
   state = {
-    address: ''
+    address: '',
+    destination: '',
+    addressLatLng: '',
+    destinationLatLng: ''
   }
   changeOriginAddress = (address, latLng) => {
     store.dispatch(origin({ origin: address }));
-    this.setState({address: address});
     store.dispatch(originLatLng({ originLatLng: latLng }));
+    this.setState({
+      origin: address,
+      originLatLng: latLng,
+    });
   }
   changeDestinationAddress = (address, latLng) => {
     store.dispatch(destination({ destination: address }));
     store.dispatch(destinationLatLng({ destinationLatLng: latLng }));
+    this.setState({
+      destination: address,
+      destinationLng: latLng,
+    });
   }
   calculate = () => {
     console.log(this.props)
-    console.log(this.state.address)
+    this.props.updateMapData(
+      this.state.origin, 
+      this.state.destination,
+      this.state.originLatLng, 
+      this.state.destinationLatLng
+    );
   }
   render() {
     var lang = String(store.getState().lang.language);
