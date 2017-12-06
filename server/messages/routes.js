@@ -38,16 +38,27 @@ router.get("/:id", (req, res) => {
 
 router.post("/:id/send", (req, res) => {
     var msg = req.body;
-    if (!msg.date) msg.date = Date.now();
-    if (msg.origin) {
-        msg.route = `${hosturl}/route/${msg.origin.lat}/${msg.origin.lng}/${msg.destination.lat}/${msg.destination.lng}`
-        msg.origin = undefined; msg.destination = undefined;
-    }
-    Conversation.update({ _id: req.params.id }, { "$push": { messages: msg } }, (err, convo) => {
+    var user2 = null;
+    Conversation.findOne({ _id: req.params.id }, (err, convo) => {
         if (err) {
             res.json(err);
-        } else {
-            res.json(convo);
+        } else if (convo.user2 == "socialmedia") {
+            user2 = msg.user;
+            if (!msg.date) msg.date = Date.now();
+            if (msg.origin) {
+                msg.route = `${hosturl}/route/${msg.origin.lat}/${msg.origin.lng}/${msg.destination.lat}/${msg.destination.lng}/${msg.reqdate}/`
+                msg.origin = undefined; msg.destination = undefined; msg.reqdate = undefined;
+            }
+            var update = user2 ?
+                { "$set": { user2: user2 }, "$push": { messages: msg } } :
+                { "$push": { messages: msg } };
+            Conversation.update({ _id: req.params.id }, update, { multi: true }, (err, convo) => {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(convo);
+                }
+            })
         }
     })
 })
