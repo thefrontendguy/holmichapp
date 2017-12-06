@@ -59,7 +59,7 @@ function addressReducer(state = {
 const rootReducer = combineReducers({
     user: userReducer,
     lang: languageReducer,
-    route: latLngReducer,
+    latLng: latLngReducer,
     address: addressReducer
 });
 

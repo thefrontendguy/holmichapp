@@ -6,6 +6,8 @@ import { store } from '../redux/store';
 
 import text from '../translate';
 
+import LanguageSwitcher from '../containers/LanguageSwitcher';
+
 class MainLayout extends React.Component {
     constructor(props) {
         super(props);
@@ -40,9 +42,10 @@ class MainLayout extends React.Component {
                             <NavLink to='/register' className='register'>{text()[lang].REGISTER}</NavLink>
                         </div>
                     }
+                    <LanguageSwitcher />
                 </div>
-                </div>
-                )
+            </div>
+        )
     }
 }
 

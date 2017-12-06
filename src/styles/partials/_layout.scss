@@ -118,6 +118,7 @@ body {
   & .links {
     font-size: $font_m;
     display: flex;
+    align-items: center;
 
     & div {
       display: flex;
@@ -161,7 +162,13 @@ body {
             @include headerIcon("\f14e")
           }
         }
+      }
     }
+    & .language-switcher {
+      border: 1px solid $col3_c;
+      color: $col3;
+      max-width: 150px;
+      padding: 5px;
     }
   }
 }
@@ -224,12 +231,11 @@ body {
   }
 }
 
-.profile {
-  & .language-switcher {
-    border: 1px solid $col3;
-    color: $col3;
-    max-width: 150px;
-  }
+.language-switcher {
+  border: 1px solid $col3;
+  color: $col3;
+  max-width: 150px;
+  padding: 5px;
 }
 .login-form {
   & form {

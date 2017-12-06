@@ -10,7 +10,7 @@ function translate(newString) {
             
             "GREETING" : `Hello ${newString}, how are you?`,
             
-            "ROUTE": "Route Planner",
+            "ROUTE": "Routes",
             "LOGIN": "Sign in",
             "LOGOUT_MESSAGE": "Log out from this computer?",
             "LOGOUT": "Log out",
@@ -32,8 +32,10 @@ function translate(newString) {
             
             "LOGIN_FORM_TITLE": "Log In",
             "REGISTER_FORM_TITLE": "Register",
-            "ENTER_USERNAME": "Enter email",
-            "PLACEHOLDER_USERNAME": "Your email",
+            "ENTER_USERNAME": "Enter username",
+            "PLACEHOLDER_USERNAME": "Your username",
+            "ENTER_EMAIL": "Enter email",
+            "PLACEHOLDER_EMAIL": "Your email",
             "ENTER_PASSWORD": "Enter password",
             "PLACEHOLDER_PASSWORD": "Your password",
             
@@ -49,7 +51,7 @@ function translate(newString) {
             "HOME_TEXT": "Irgend ein Text auf der Startseite",
             "GREETING" : `Hallo ${newString}, wie geht es dir?`,
             
-            "ROUTE": "Zum Routenplaner",
+            "ROUTE": "Routenplaner",
             "LOGIN": "Einloggen",
             "LOGOUT_MESSAGE": "Von diesem Computer abmelden?",
             "LOGOUT": "Ausloggen",
@@ -71,6 +73,8 @@ function translate(newString) {
 
             "LOGIN_FORM_TITLE": "Einloggen",
             "REGISTER_FORM_TITLE": "Registrieren",
+            "ENTER_USERNAME": "Benutzernamen aussuchen",
+            "PLACEHOLDER_USERNAME": "Dein Benutzername",
             "ENTER_USERNAME": "Email eingeben",
             "PLACEHOLDER_USERNAME": "Email",
             "ENTER_PASSWORD": "Passwort eingeben",

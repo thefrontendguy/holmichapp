@@ -2,6 +2,9 @@
 import React from 'react';
 import { localization } from '../config';
 
+import { store } from '../redux/store';
+
+
 const { compose, withProps, lifecycle } = require("recompose");
 const {
   withScriptjs,
@@ -10,13 +13,26 @@ const {
   DirectionsRenderer,
 } = require("react-google-maps");
 
-// START / Origin
+/* // START / Origin
 const originLat = null;
 const originLng = null;
 
 // DESTINATION
 const destinationLat = null;
-const destinationLng = null;
+const destinationLng = null; */
+
+// START / Origin
+const originLat = 52.52000659999999;
+const originLng = 13.404953999999975;
+
+// DESTINATION
+const destinationLat = 48.856614;
+const destinationLng = 2.3522219000000177;
+
+const storeOriginLatLng = '';
+const storeDestinationLatLng = '';
+
+
 
 const Map = compose(
   withProps({
@@ -28,14 +44,14 @@ const Map = compose(
   withScriptjs,
   withGoogleMap,
   lifecycle({
-    componentWillMount() {
-    },
     componentDidMount() {
+      console.log(this.props)
+
       const DirectionsService = new google.maps.DirectionsService();
 
       DirectionsService.route({
-        origin: new google.maps.LatLng(this.props.origin ? this.props.origin.lat : originLat, this.props.origin ? this.props.origin.lng : originLng),
-        destination: new google.maps.LatLng(this.props.destination ? this.props.destination.lat : destinationLat, this.props.destination ? this.props.destination.lng : destinationLng),
+        origin: new google.maps.LatLng(originLat, originLng),
+        destination: new google.maps.LatLng(destinationLat, destinationLng),
         travelMode: google.maps.TravelMode.DRIVING,
       }, (result, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
@@ -45,27 +61,25 @@ const Map = compose(
         } else {
           console.error(`You can not go there with the car. Buy a rocket.`);
         }
-      });
+      })
     },
-    // update the map, when props change
-    componentWillReceiveProps(newProps) {
+    componentWillReceiveProps(props) {
+      console.log(this.props)
       const DirectionsService = new google.maps.DirectionsService();
 
       DirectionsService.route({
-        origin: new google.maps.LatLng(newProps.origin ? newProps.origin.lat : originLat, newProps.origin ? newProps.origin.lng : originLng),
-        destination: new google.maps.LatLng(newProps.destination ? newProps.destination.lat : destinationLat, newProps.destination ? newProps.destination.lng : destinationLng),
+        origin: new google.maps.LatLng(originLat, originLng),
+        destination: new google.maps.LatLng(destinationLat, destinationLng),
         travelMode: google.maps.TravelMode.DRIVING,
       }, (result, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
           this.setState({
-            directions: result
+            directions: result,
           });
-          this.props.distAndDur(result);
         } else {
-          this.props.distAndDur(null);
-          console.error("You can not go there by car. Buy a rocket.");
+          console.error(`You can not go there with the car. Buy a rocket.`);
         }
-      });
+      })
     }
   })
 )(props =>

@@ -9,7 +9,6 @@ import Register from './containers/Register';
 import Profile from './containers/Profile';
 
 import { store } from './redux/store';
-import text from './translate';
 
 import {
     Switch,
@@ -19,7 +18,6 @@ import {
 
 class App extends React.Component {
     render() {
-        const lang = store.getState().lang.language;
         const isLoggedIn = store.getState().user.isLoggedIn;
         return (
             <Router>

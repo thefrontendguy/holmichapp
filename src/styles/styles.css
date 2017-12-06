@@ -79,7 +79,8 @@ body {
         font-size: 9px; }
   .header .links {
     font-size: 13px;
-    display: flex; }
+    display: flex;
+    align-items: center; }
     .header .links div {
       display: flex; }
       .header .links div .login-register {
@@ -116,6 +117,11 @@ body {
           font-family: "Fontawesome";
           font-size: 145%;
           margin-right: 5px; }
+    .header .links .language-switcher {
+      border: 1px solid #fff;
+      color: #CE391F;
+      max-width: 150px;
+      padding: 5px; }
 
 .map-complete {
   flex: 1;
@@ -154,10 +160,11 @@ body {
   .map-complete .map-element {
     flex: 1; }
 
-.profile .language-switcher {
+.language-switcher {
   border: 1px solid #CE391F;
   color: #CE391F;
-  max-width: 150px; }
+  max-width: 150px;
+  padding: 5px; }
 
 .login-form form {
   display: flex;
