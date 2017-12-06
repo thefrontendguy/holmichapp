@@ -1,4 +1,4 @@
-function translate(newString) { 
+function translate(newString, newString2 = null, newString3 = null, newString4 = null) { 
     const translations = {
         "en": {
             "APP_LANGUAGE": "The language of this app", 
@@ -41,6 +41,9 @@ function translate(newString) {
             
             "NEW_HERE": "New here? Create a new account.",
             "ALREADY_HAS_ACCOUNT": "Already have an account? Sign in here.",
+
+            "ASK_SOCIAL_TITLE": `Ask someone, to pick you up from this route`,
+            "ASK_SOCIAL_MESSAGE": `Hi, I need a ride from ${newString} to ${newString2}. Can you help? :-)`
         },
         "de": {
             "APP_LANGUAGE": "Die Sprache der App", 
@@ -82,6 +85,9 @@ function translate(newString) {
             
             "NEW_HERE": "Neu hier? Registriere einen neuen Benutzer.",
             "ALREADY_HAS_ACCOUNT": "Bereits einen Account? Einfach anmelden.",
+            
+            "ASK_SOCIAL_TITLE": `Frag' jemanden, ob du gefahren werden kannst.`,
+            "ASK_SOCIAL_MESSAGE": `Hey, ich muss von ${newString} nach ${newString2}. Kannst du mich fahren? :-)`
         }
     }
 return translations;

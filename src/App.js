@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './components/Header';
 
 import Home from './components/Home';
-import Map from './components/Map';
+import Map from './containers/Map';
 import Login from './containers/Login';
 import Register from './containers/Register';
 import Profile from './containers/Profile';

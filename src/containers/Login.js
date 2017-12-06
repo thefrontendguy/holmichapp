@@ -31,7 +31,9 @@ class Login extends React.Component {
         var user = {}
         user.email = this.state.email;
         user.password = this.state.password;
-        axios.post(`http://localhost:3001/user/login`, user)
+        var requrl = window.location.hostname === "localhost" ?
+            "localhost:3001" : window.location.hostname;
+        axios.post(`http://${requrl}/user/login`, user)
             .then(res => {
                 console.log(res)
                 this.setState({ user: res.data, password: '' });
