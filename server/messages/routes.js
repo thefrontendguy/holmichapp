@@ -9,11 +9,10 @@ router.post("/create", (req, res) => {
     var msg = convo.messages[0];
     if (!msg.date) convo.messages[0].date = Date.now();
     if (msg.origin) {
-        msg.route = `${hosturl}/route/${msg.origin.lat}/${msg.origin.lng}/${msg.destination.lat}/${msg.destination.lng}`
-        msg.origin = undefined; msg.destination = undefined;
+        msg.route = `${hosturl}/route/${msg.origin.lat}/${msg.origin.lng}/${msg.destination.lat}/${msg.destination.lng}/${msg.reqdate}/`
+        msg.origin = undefined; msg.destination = undefined; msg.reqdate = undefined;
         convo.messages[0] = msg;
     }
-
     Conversation.create(convo)
         .then(convo => {
             res.status(200).json(convo);

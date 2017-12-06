@@ -2,6 +2,7 @@
   "name": "holmichapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://holmichapp.herokuapp.com",
   "dependencies": {
     "axios": "^0.17.1",
     "bcrypt": "^1.0.3",
@@ -17,6 +18,7 @@
     "passport-local": "^1.0.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-fontawesome": "^1.6.1",
     "react-google-maps": "^9.2.2",
     "react-places-autocomplete": "^5.4.3",
     "react-redux": "^5.0.6",
@@ -27,17 +29,20 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.0.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-react": "^0.76.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js server",
+    "start": "npm-run-all -p watch-css start-js dev-server",
+    "start-prod": "npm run server",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "server": "nodemon server"
+    "dev-server": "nodemon server",
+    "server": "node server"
   }
 }

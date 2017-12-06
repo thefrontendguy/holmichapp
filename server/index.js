@@ -3,7 +3,7 @@ var app = express();
 var userRoutes = require("./users");
 var messageRoutes = require("./messages");
 var compress = require("compression");
-var secret = require("./config/keys").sessionsecret;
+//var secret = process.env.sessionsecret || require("./config/keys").sessionsecret;
 app.use(compress());
 
 // set up passport
@@ -22,12 +22,12 @@ passport.deserializeUser((id, done) => {
 }); */
 
 // set up session
-var session = require('express-session');
+/*var session = require('express-session');
 app.use(session({
     secret: secret,
     resave: true,
     saveUninitialized: false
-}));
+}));*/
 
 // set up body-parser
 var bodyParser = require("body-parser");

@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var connectionString = require("./connectionstring");
+var connectionString = process.env.connectionstring || require("./connectionstring");
 
 module.exports = {
     database: connectionString,
