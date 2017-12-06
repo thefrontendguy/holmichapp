@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MapRender from './MapRender';
-import MapAddressInput from './MapAddressInput';
+import MapAddressInput2 from './MapAddressInput2';
 
 import { store } from '../redux/store';
 import text from '../translate';
@@ -32,9 +32,9 @@ class Map extends Component {
     return (
       <div className="map-complete">
         <div className="map-infos">
-          Map 1
+          MAP 2
           <div className="title">{text()[lang].MAPS_INFO_TITLE}</div>
-          <MapAddressInput updateMapData={this.updateMapData} unit={' km'} />
+          <MapAddressInput2 updateMapData={this.updateMapData} unit={' km'} />
           <Share origin={this.state.origin} destination={this.state.destination} />
         </div>
         <MapRender

@@ -7,7 +7,7 @@ import text from '../translate';
 
 import { Button } from '../components/InputElements';
 
-class MapAddressInput extends React.Component {
+class MapAddressInput2 extends React.Component {
   handleFormSubmit = (event) => {
     event.preventDefault()
 
@@ -59,26 +59,9 @@ class MapAddressInput extends React.Component {
           myStyle='submit submit-addresses'
           text={text()[lang].SUBMIT_ADDRESSES}
         />
-
-        {(this.props.distAndDur !== null)
-          ? <div>
-            <p>
-              {text()[lang].DISTANCE} {this.props.distAndDur.routes[0].legs[0].distance.text.split(" ")[0] + this.props.unit}
-            </p>
-            <p>
-              {text()[lang].ESTIMATED_DURATION} {this.props.distAndDur.routes[0].legs[0].duration.text}
-            </p>
-          </div>
-          : <div>
-            <p>
-              <br />
-              {text()[lang].FILL_FORM}
-            </p>
-          </div>
-        }
       </form>
     )
   }
 }
 
-export default MapAddressInput;
+export default MapAddressInput2;

@@ -18,7 +18,7 @@ class InputOrigin extends React.Component {
         geocodeByAddress(this.state.address)
             .then(results => getLatLng(results[0]))
             .then(latLng => {
-                this.props.fetchAddress(this.state.address, latLng);
+                this.props.fetchAddress(this.state.address, latLng, this.props.direction);
             })
             .catch(error => console.log('Error', error))
     }

@@ -4,6 +4,7 @@ import Header from './components/Header';
 
 import Home from './components/Home';
 import Map from './containers/Map';
+import Map2 from './containers/Map2';
 import Login from './containers/Login';
 import Register from './containers/Register';
 import Profile from './containers/Profile';
@@ -23,20 +24,23 @@ class App extends React.Component {
             <Router>
                 <div id='app'>
                     <Header />
-                    {isLoggedIn
-                        ?
-                        <Switch>
-                            <Route exact path='/' component={Home} />
-                            <Route path='/route' component={Map} />
-                            <Route path='/profile' component={Profile} />
-                        </Switch>
-                        :
-                        <Switch>
-                            <Route path='/route' component={Map} />
-                            <Route path='/login' component={Login} />
-                            <Route path='/register' component={Register} />
-                        </Switch>
-                    }
+                    <Switch>
+                        <Route path='/route/:originlat/:originlng/:destinationlat/:destinationlng/:reqdate/:messageid' component={Map2} />
+                        {isLoggedIn
+                            ?
+                            <Switch>
+                                <Route exact path='/' component={Home} />
+                                <Route exact path='/route' component={Map} />
+                                <Route path='/profile' component={Profile} />
+                            </Switch>
+                            :
+                            <Switch>
+                                <Route exact path='/route' component={Map} />
+                                <Route path='/login' component={Login} />
+                                <Route path='/register' component={Register} />
+                            </Switch>
+                        }
+                    </Switch>
                 </div>
             </Router>
         )

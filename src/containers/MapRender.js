@@ -13,31 +13,15 @@ const {
   DirectionsRenderer,
 } = require("react-google-maps");
 
-/* // START / Origin
+// START / Origin
 const originLat = null;
 const originLng = null;
 
 // DESTINATION
 const destinationLat = null;
-const destinationLng = null; */
-
-// START / Origin
-const originLat = 52.52000659999999;
-const originLng = 13.404953999999975;
-
-// DESTINATION
-const destinationLat = 48.856614;
-const destinationLng = 2.3522219000000177;
+const destinationLng = null;
 
 console.log(this.props)
-
-/* const originLatLng = {lat: -34.397, lng: 150.644};
-const destinationLatLng = {lat: -34.317, lng: 150.424}; */
-/* 
-const originLatLng = this.props.originLatLng ? this.props.originLatLng : '';
-const destinationLatLng = this.props.destinationLatLng ? this.props.destinationLatLng : ''; */
-
-
 
 const Map = compose(
   withProps({
