@@ -18,7 +18,7 @@ const originLng = null;
 const destinationLat = null;
 const destinationLng = null;
 
-//console.log(this.props)
+console.log(this.props.destinationLat)
 
 const Map = compose(
   withProps({
@@ -31,7 +31,7 @@ const Map = compose(
   withGoogleMap,
   lifecycle({
     componentDidMount() {
-      //console.log(this.props)
+      console.log(this.props)
 
       const DirectionsService = new google.maps.DirectionsService();
 
@@ -52,7 +52,7 @@ const Map = compose(
       })
     },
     componentWillReceiveProps(newProps) {
-      //console.log(newProps)
+      console.log(newProps)
       const DirectionsService = new google.maps.DirectionsService();
 
       DirectionsService.route({

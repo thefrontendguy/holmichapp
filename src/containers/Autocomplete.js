@@ -1,8 +1,6 @@
 import React from 'react'
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 
-import { store } from '../redux/store';
-
 class InputOrigin extends React.Component {
     constructor(props) {
         super(props)

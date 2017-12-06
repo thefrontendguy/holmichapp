@@ -17,29 +17,46 @@ class Map extends Component {
       destinationLatLng: ''
     }
   }
-  updateMapData = (origin, destination, originLatLng, destinationLatLng) => {
-    this.setState({ origin: origin });
-    this.setState({ destination: destination });
-    this.setState({ originLatLng: originLatLng });
-    this.setState({ destinationLatLng: destinationLatLng });
-  }
+  /*   updateMapData = (origin, destination, originLatLng, destinationLatLng) => {
+      this.setState({ origin: origin });
+      this.setState({ destination: destination });
+      this.setState({ originLatLng: originLatLng });
+      this.setState({ destinationLatLng: destinationLatLng });
+    } */
   render() {
-    console.log(this.state.origin)
-    console.log(this.state.destination)
-    console.log(this.state.originLatLng)
-    console.log(this.state.destinationLatLng)
+    var { match } = this.props;
+
+    var originlat = match.params.originlat;
+    var originlng = match.params.originlng;
+
+    var destinationlat = match.params.destinationlat;
+    var destinationlng = match.params.destinationlng;
+
+    var reqdate = match.params.reqdate;
+    var messageid = match.params.messageid;
+
+
+
+    const originLatLng2 = {};
+    originLatLng2.lat = originlat;
+    originLatLng2.lng = originlng;
+
+    const destinationLatLng2 = {};
+    destinationLatLng2.lat = destinationlat;
+    destinationLatLng2.lng = destinationlng;
+
     var lang = String(store.getState().lang.language);
     return (
       <div className="map-complete">
         <div className="map-infos">
           MAP 2
           <div className="title">{text()[lang].MAPS_INFO_TITLE}</div>
-          <MapAddressInput2 updateMapData={this.updateMapData} unit={' km'} />
+          <MapAddressInput2 route={match.params} updateMapData={this.updateMapData} unit={' km'} />
           <Share origin={this.state.origin} destination={this.state.destination} />
         </div>
         <MapRender
-          originLatLng={this.state.originLatLng}
-          destinationLatLng={this.state.destinationLatLng}
+          originLatLng={originLatLng2}
+          destinationLatLng={destinationLatLng2}
           className="map"
           localization={lang} />
 

@@ -212,6 +212,12 @@ body {
         }
       }
     }
+    & .textarea {
+      width: 100% !important;
+      min-width: 100% !important;
+      max-width: 100% !important;
+      min-height: 125px;
+    }
   }
   & .map {
     height: 100%;

@@ -148,6 +148,11 @@ body {
         margin-bottom: 10px; }
         .map-complete .map-infos .map-address-input #PlacesAutocomplete__root button {
           padding: 10px !important; }
+    .map-complete .map-infos .textarea {
+      width: 100% !important;
+      min-width: 100% !important;
+      max-width: 100% !important;
+      min-height: 125px; }
   .map-complete .map {
     height: 100%;
     width: 100%;

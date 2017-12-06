@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import {
     ShareButtons,
-    ShareCounts,
     generateShareIcon
 } from 'react-share';
 
@@ -11,51 +10,23 @@ import text from '../translate';
 
 const {
     FacebookShareButton,
-    GooglePlusShareButton,
     LinkedinShareButton,
     TwitterShareButton,
-    TelegramShareButton,
     WhatsappShareButton,
-    PinterestShareButton,
-    VKShareButton,
-    OKShareButton,
-    RedditShareButton,
-    TumblrShareButton,
-    LivejournalShareButton,
     EmailShareButton,
   } = ShareButtons;
-
-const {
-    FacebookShareCount,
-    GooglePlusShareCount,
-    LinkedinShareCount,
-    PinterestShareCount,
-    VKShareCount,
-    OKShareCount,
-    RedditShareCount,
-    TumblrShareCount,
-  } = ShareCounts;
 
 export default class Share extends Component {
     render() {
         const FacebookIcon = generateShareIcon('facebook');
         const TwitterIcon = generateShareIcon('twitter');
-        const TelegramIcon = generateShareIcon('telegram');
         const WhatsappIcon = generateShareIcon('whatsapp');
-        const GooglePlusIcon = generateShareIcon('google');
         const LinkedinIcon = generateShareIcon('linkedin');
-        const PinterestIcon = generateShareIcon('pinterest');
-        const VKIcon = generateShareIcon('vk');
-        const OKIcon = generateShareIcon('ok');
-        const RedditIcon = generateShareIcon('reddit');
-        const TumblrIcon = generateShareIcon('tumblr');
-        const LivejournalIcon = generateShareIcon('livejournal');
-        const MailruIcon = generateShareIcon('mailru');
         const EmailIcon = generateShareIcon('email');
 
         const shareUrl = 'http://www.localhost:3000/route'
 
-        console.log(this.props)
+        //console.log(this.props)
         const origin = this.props.origin;
         const destination = this.props.destination;
         var lang = String(store.getState().lang.language);
@@ -95,10 +66,3 @@ export default class Share extends Component {
         )
     }
 }
-
-/*     <FacebookShareCount url={shareUrl} />
-<FacebookShareCount url={shareUrl}>
-{shareCount => (
-    <span className="myShareCountWrapper">{shareCount}</span>
-)}
-</FacebookShareCount> */
