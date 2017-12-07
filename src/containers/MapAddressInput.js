@@ -87,13 +87,6 @@ class MapAddressInput extends React.Component {
       <form className="map-address-input">
         <div className="title">{text()[lang].MAPS_INFO_TITLE}</div>
 
-        <Button
-          type='button'
-          myStyle='submit submit-addresses'
-          text={text()[lang].SUBMIT_ADDRESSES}
-          click={this.calculate}
-        />
-
         <div className="label">{text()[lang].FROM}</div>
         <Autocomplete direction="origin" fetchAddress={this.getCoordinates} />
 

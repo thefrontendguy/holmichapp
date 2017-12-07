@@ -57,39 +57,6 @@ body {
       padding-bottom: 5px; }
     #app .content form {
       max-width: 400px; }
-  #app .date-time-picker {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0; }
-    #app .date-time-picker .label {
-      text-align: center;
-      margin-bottom: 3px; }
-    #app .date-time-picker .date-picker,
-    #app .date-time-picker .time-picker {
-      display: flex; }
-      #app .date-time-picker .date-picker select,
-      #app .date-time-picker .time-picker select {
-        margin-bottom: 10px;
-        border: 1px solid #CE391F;
-        color: #CE391F;
-        max-width: 150px;
-        padding: 5px;
-        flex: 1;
-        margin-right: 7px;
-        outline: none;
-        border: 1px solid rgba(206, 57, 31, 0.5);
-        border-radius: 2px;
-        transition: .15s all linear; }
-        #app .date-time-picker .date-picker select:hover,
-        #app .date-time-picker .time-picker select:hover {
-          border: 1px solid #CE391F; }
-      #app .date-time-picker .date-picker select:last-of-type,
-      #app .date-time-picker .time-picker select:last-of-type {
-        margin-right: 0; }
-    #app .date-time-picker .time-picker {
-      justify-content: center; }
-      #app .date-time-picker .time-picker select {
-        flex: initial; }
 
 .header {
   display: flex;
@@ -229,6 +196,40 @@ body {
     margin-bottom: 0; }
   .share-buttons .button {
     padding: 5px; }
+
+.date-time-picker {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0; }
+  .date-time-picker .label {
+    text-align: center;
+    margin-bottom: 3px; }
+  .date-time-picker .date-picker,
+  .date-time-picker .time-picker {
+    display: flex; }
+    .date-time-picker .date-picker select,
+    .date-time-picker .time-picker select {
+      margin-bottom: 10px;
+      border: 1px solid #CE391F;
+      color: #CE391F;
+      max-width: 150px;
+      padding: 5px;
+      flex: 1;
+      margin-right: 7px;
+      outline: none;
+      border: 1px solid rgba(206, 57, 31, 0.5);
+      border-radius: 2px;
+      transition: .15s all linear; }
+      .date-time-picker .date-picker select:hover,
+      .date-time-picker .time-picker select:hover {
+        border: 1px solid #CE391F; }
+    .date-time-picker .date-picker select:last-of-type,
+    .date-time-picker .time-picker select:last-of-type {
+      margin-right: 0; }
+  .date-time-picker .time-picker {
+    justify-content: center; }
+    .date-time-picker .time-picker select {
+      flex: initial; }
 
 input,
 .input {
