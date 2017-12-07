@@ -66,7 +66,7 @@ class MapAddressInput extends React.Component {
       .then(data => {
         console.log(data.data);
         var msg = data.data.messages[0];
-        var url = msg.route + msg._id;
+        var url = msg.route + data.data._id;
         this.props.updateMapData(
           this.state.origin,
           this.state.destination,
