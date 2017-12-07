@@ -16,7 +16,7 @@ router.post("/create", (req, res) => {
     Conversation.create(convo)
         .then(convo => {
             res.status(200).json(convo);
-            var ids = [convo.user1, convo.user2];
+            var ids = convo.user2 != "socialmedia" ? [convo.user1, convo.user2] : [convo.user1];
             User.update({ _id: { "$in": ids } },
                 { "$push": { conversations: { conversation: convo._id } } },
                 { multi: true },

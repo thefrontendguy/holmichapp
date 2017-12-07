@@ -6,6 +6,7 @@ import text from '../translate';
 
 import { Button } from '../components/InputElements';
 import Autocomplete from './Autocomplete';
+import axios from 'axios';
 
 class MapAddressInput extends React.Component {
   state = {
@@ -60,12 +61,44 @@ class MapAddressInput extends React.Component {
   }
 
   calculate = () => {
-    this.props.updateMapData(
-      this.state.origin,
-      this.state.destination,
-      this.state.originLatLng,
-      this.state.destinationLatLng
-    );
+    var { day, month, year } = this.state;
+
+    // example:1994-11-05T08:15:30-05:00
+    var datetimestring = `${year}-${month}-${day}T00:00:00Z`;
+
+    var lang = String(store.getState().lang.language);
+    var testuser = "5a26dbac2082bc517191a597";
+    var convo = {};
+    //convo.user1 = store.getState().user.id.id || testuser;
+    convo.user1 = testuser;
+    convo.user2 = "socialmedia";
+    convo.messages = [];
+    convo.messages.push({
+      content: text(this.state.origin, this.state.destination)[lang].ASK_SOCIAL_MESSAGE,
+      user: convo.user1,
+      origin: this.state.originLatLng,
+      destination: this.state.destinationLatLng,
+      reqdate: datetimestring
+    });
+    var requrl = window.location.hostname === "localhost" ?
+      "http://localhost:3001/message/create" : `https://${window.location.hostname}/message/create`;
+    axios.post(requrl, convo)
+      .then(data => {
+        console.log(data.data);
+        var msg = data.data.messages[0];
+        var url = msg.route + msg._id;
+        this.props.updateMapData(
+          this.state.origin,
+          this.state.destination,
+          this.state.originLatLng,
+          this.state.destinationLatLng,
+          this.state.reqdate,
+          url,
+          msg.content
+        );
+
+      })
+      .catch(err => { console.log(err); });
   }
   updateDateTime = (e) => {
     switch (e.target.id) {
