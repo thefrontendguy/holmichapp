@@ -146,6 +146,8 @@ body {
     .map-complete .map-infos .map-address-input {
       display: flex;
       flex-direction: column; }
+      .map-complete .map-infos .map-address-input .title {
+        text-align: center; }
       .map-complete .map-infos .map-address-input > .label {
         text-align: center;
         margin: 7px 0 3px 0; }
@@ -230,6 +232,87 @@ body {
     justify-content: center; }
     .date-time-picker .time-picker select {
       flex: initial; }
+
+.stepper {
+  display: flex;
+  flex-direction: column;
+  transition: .15s all linear; }
+  .stepper .row {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    color: #A9CAF0;
+    cursor: pointer;
+    transition: .15s all linear; }
+    .stepper .row div {
+      pointer-events: none; }
+    .stepper .row:hover {
+      opacity: 1;
+      color: #1DA79C; }
+      .stepper .row:hover .list:before {
+        border-color: #1DA79C;
+        border-width: 3px; }
+    .stepper .row:before {
+      content: "";
+      width: 2px;
+      background: #A9CAF0;
+      position: absolute;
+      left: 24px;
+      height: 100%; }
+    .stepper .row:first-child:before {
+      top: 50%;
+      height: 50%; }
+    .stepper .row:last-child:before {
+      bottom: 50%;
+      height: 50%; }
+    .stepper .row .list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25px;
+      min-width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 2px solid #A9CAF0;
+      background: white;
+      margin: 10px;
+      position: relative;
+      z-index: 1; }
+      .stepper .row .list:before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #A9CAF0; }
+    .stepper .row .text {
+      padding: 0; }
+    .stepper .row.done {
+      color: #1DA79C; }
+      .stepper .row.done .list:before {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: "";
+        width: 5px;
+        height: 10px;
+        border-color: #1DA79C;
+        color: #CE391F;
+        border-style: solid;
+        border-width: 0px 3px 3px 0px;
+        transform: rotate(45deg) scale(1.1);
+        background: transparent;
+        border-radius: initial;
+        margin-top: -3px;
+        animation: .4s stepDone linear forwards; }
+
+@keyframes stepDone {
+  from {
+    transform: rotate(45deg) scale(0.2, 0.2); }
+  85% {
+    transform: rotate(45deg) scale(1.1, 1.1); }
+  to {
+    transform: rotate(45deg) scale(1.1); } }
 
 input,
 .input {

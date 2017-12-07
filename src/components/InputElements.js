@@ -21,6 +21,41 @@ export const Button = (props) => {
     )
 }
 
+export class Stepper extends Component {
+    stepDone = (e) => {
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+
+        if (e.target.className === 'row step1') {
+            step1.className = 'row step1 done';
+            step2.className = 'row step2';
+        }
+        if (e.target.className === 'row step2') {
+            step2.className = 'row step2 done';
+            step1.className = 'row step1';
+        }
+    }
+    render() {
+        var lang = String(store.getState().lang.language);
+        const step1 = text()[lang].MAP_STEP_1;
+        const step2 = text()[lang].MAP_STEP_2;
+        return (
+            <div className="stepper">
+                <div id='step1' className="row step1 done" onClick={e => this.stepDone(e)} >
+                    <div className="list"></div>
+                    <div className="line"></div>
+                    <div className="text">{step1}</div>
+                </div>
+                <div id='step2' className="row step2" onClick={e => this.stepDone(e)} >
+                    <div className="list"></div>
+                    <div className="line"></div>
+                    <div className="text">{step2}</div>
+                </div>
+            </div>
+        )
+    }
+}
+
 export class DatePicker extends Component {
     constructor(props) {
         super(props);

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import MapRender from './MapRender';
-import MapAddressInput from './MapAddressInput';
+import MapStep1 from './MapStep1';
 
 import { store } from '../redux/store';
 import text from '../translate';
+
+import { Stepper } from '../components/InputElements';
 
 import Share from './Share';
 
@@ -42,8 +44,11 @@ class Map extends Component {
     return (
       <div className="map-complete">
         <div className="map-infos">
-          Map 1
-          <MapAddressInput updateMapData={this.updateMapData} unit={' km'} />
+
+          <div className="title">{text()[lang].MAP_STEP_TITLE}</div>
+          <Stepper />
+          <br />
+          <MapStep1 updateMapData={this.updateMapData} unit={' km'} />
           <Share route={route} origin={this.state.origin} destination={this.state.destination} />
         </div>
         <MapRender

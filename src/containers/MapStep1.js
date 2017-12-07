@@ -8,7 +8,7 @@ import { Button, DatePicker, TimePicker } from '../components/InputElements';
 import Autocomplete from './Autocomplete';
 import axios from 'axios';
 
-class MapAddressInput extends React.Component {
+class MapStep1 extends React.Component {
   state = {
     address: '',
     destination: '',
@@ -138,4 +138,4 @@ class MapAddressInput extends React.Component {
           </div>
       } */
 
-export default MapAddressInput;
+export default MapStep1;
