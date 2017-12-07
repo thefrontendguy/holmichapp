@@ -43,7 +43,6 @@ class Map extends Component {
       <div className="map-complete">
         <div className="map-infos">
           Map 1
-          <div className="title">{text()[lang].MAPS_INFO_TITLE}</div>
           <MapAddressInput updateMapData={this.updateMapData} unit={' km'} />
           <Share route={route} origin={this.state.origin} destination={this.state.destination} />
         </div>

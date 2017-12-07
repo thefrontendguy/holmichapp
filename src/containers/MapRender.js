@@ -22,7 +22,7 @@ const destinationLng = null;
 
 const Map = compose(
   withProps({
-    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places&language=${localization.language}&region=${localization.region}`,
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=AIzaSyBLy-topXnbYtxON2uEI4CQTDkiWSljTdU&v=3.exp&libraries=geometry,drawing,places&language=${localization.language}&region=${localization.region}`,
     loadingElement: <div className='map-layout' />,
     containerElement: <div className='map' />,
     mapElement: <div className='map-element' />,

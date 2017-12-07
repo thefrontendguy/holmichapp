@@ -30,7 +30,9 @@ function translate(newString, newString2 = null, newString3 = null, newString4 =
             "ESTIMATED_DURATION": "Estimated duration: ",
             "ROUTE_IMPOSSIBLE": "It is not possible to go there by car",
 
-            "PICKUP_DATE": "When you want to be picked up?",
+            "PICKUP_TITLE": "When you want to be picked up?",
+            "PICKUP_DATE": "Date",
+            "PICKUP_TIME": "Time",
 
             "LOGIN_FORM_TITLE": "Log In",
             "REGISTER_FORM_TITLE": "Register",
@@ -103,7 +105,9 @@ function translate(newString, newString2 = null, newString3 = null, newString4 =
             "ESTIMATED_DURATION": "Geschätzte Fahrtdauer: ",
             "ROUTE_IMPOSSIBLE": "It is not possible to go there by car",
 
-            "PICKUP_DATE": "Wann willst du abgeholt werden?",
+            "PICKUP_TITLE": "Wann willst du abgeholt werden?",
+            "PICKUP_DATE": "Gib das Datum ein",
+            "PICKUP_TIME": "Gib die Uhrzeit ein",
 
             "LOGIN_FORM_TITLE": "Einloggen",
             "REGISTER_FORM_TITLE": "Registrieren",

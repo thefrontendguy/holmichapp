@@ -10,10 +10,24 @@
   font-size: 145%;
   margin-right: 5px;
 }
+@mixin inputBorder {
+  outline: none;
+  border: 1px solid rgba($col3, .5);
+  border-radius: 2px;
+  @include transition;
+}
+@mixin inputBorderHover {
+  border: 1px solid $col3;
+}
 // reset some things first
 input,
-button {
+button,
+select {
   outline: none;
+}
+button,
+select {
+  cursor: pointer;
 }
 $font_sm: 9px;
 $font_m: 13px;
@@ -135,6 +149,7 @@ body {
         align-items: center;
         padding: 10px 15px;
         margin-right: 2px;
+        border-radius: 2px;
         @include transition;
   
         &:hover,
@@ -200,6 +215,7 @@ body {
       
       & > .label {
         text-align: center;
+        margin: 7px 0 3px 0;
       }
       & #PlacesAutocomplete__root {
         flex: 1;
@@ -266,5 +282,46 @@ body {
   }
   & .button {
     padding: 5px;    
+  }
+}
+
+& .date-time-picker {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+
+  & .label {
+    text-align: center;
+    margin-bottom: 3px;
+  }
+  
+  & .date-picker,
+  & .time-picker {
+    display: flex;
+    & select {
+      margin-bottom: 10px;
+      border: 1px solid $col3;
+      color: $col3;
+      max-width: 150px;
+      padding: 5px;
+      flex: 1;
+      margin-right: 7px;
+
+      @include inputBorder;
+      
+      &:hover {
+        @include inputBorderHover;
+      }
+    }
+    & select:last-of-type {
+      margin-right: 0;
+    }
+  }
+  & .time-picker {
+    justify-content: center;
+
+    & select {
+      flex: initial;
+    }
   }
 }
