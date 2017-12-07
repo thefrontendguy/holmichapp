@@ -52,7 +52,7 @@ class Map extends Component {
           MAP 2
           <div className="title">{text()[lang].MAPS_INFO_TITLE}</div>
           <MapAddressInput2 route={match.params} updateMapData={this.updateMapData} unit={' km'} />
-          <Share origin={this.state.origin} destination={this.state.destination} />
+          {/* <Share origin={this.state.origin} destination={this.state.destination} /> */}
         </div>
         <MapRender
           originLatLng={originLatLng2}

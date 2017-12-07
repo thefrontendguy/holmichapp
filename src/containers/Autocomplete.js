@@ -7,13 +7,15 @@ class InputOrigin extends React.Component {
         this.state = {
             address: ''
         }
-        this.onChange = (address) => {
-            this.setState({ address });
-            this.getLatLng();
-        }
+
     }
-    getLatLng = () => {
-        geocodeByAddress(this.state.address)
+    handleChanges = (address) => {
+        this.setState({ address });
+        this.getLatLng(address);
+    }
+
+    getLatLng = (address) => {
+        geocodeByAddress(address || this.state.address)
             .then(results => getLatLng(results[0]))
             .then(latLng => {
                 this.props.fetchAddress(this.state.address, latLng, this.props.direction);
@@ -25,11 +27,12 @@ class InputOrigin extends React.Component {
         //console.log(this.props)
         const inputProps = {
             value: this.state.address,
-            onChange: this.onChange,
+            onChange: this.handleChanges
         }
 
         return (
-            <PlacesAutocomplete inputProps={inputProps} />
+            <PlacesAutocomplete onSelect={this.handleChanges}
+                onEnterKeyDown={this.handleChanges} inputProps={inputProps} />
         )
     }
 }
