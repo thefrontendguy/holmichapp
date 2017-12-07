@@ -4,6 +4,7 @@ import MapAddressInput2 from './MapAddressInput2';
 
 import { store } from '../redux/store';
 import text from '../translate';
+import axios from 'axios';
 
 import Share from './Share';
 
@@ -14,7 +15,8 @@ class Map extends Component {
       origin: '',
       destination: '',
       originLatLng: '',
-      destinationLatLng: ''
+      destinationLatLng: '',
+      message: 'Hi, I need a ride from point A to point B. Can you help? :-)'
     }
   }
   /*   updateMapData = (origin, destination, originLatLng, destinationLatLng) => {
@@ -23,7 +25,29 @@ class Map extends Component {
       this.setState({ originLatLng: originLatLng });
       this.setState({ destinationLatLng: destinationLatLng });
     } */
-  render() {
+
+
+  componentDidMount = () => {
+    var { match } = this.props;
+
+    var reqdate = match.params.reqdate;
+    var messageid = match.params.messageid;
+    console.log(messageid);
+    var requrl = window.location.hostname === "localhost"
+      ? `http://localhost:3001/message/${messageid}`
+      : `https://${window.location.hostname}/message/${messageid}`;
+
+    axios.get(requrl)
+      .then(data => {
+        var msg = data.data.messages[0];
+        this.setState({ message: msg.content })
+        if (msg.originAddress) this.setState({ origin: msg.originAddress });
+        if (msg.destinationAddress) this.setState({ destination: msg.destinationAddress });
+      })
+      .catch(err => console.log(err))
+
+  }
+  render = () => {
     var { match } = this.props;
 
     var originlat = match.params.originlat;
@@ -31,9 +55,6 @@ class Map extends Component {
 
     var destinationlat = match.params.destinationlat;
     var destinationlng = match.params.destinationlng;
-
-    var reqdate = match.params.reqdate;
-    var messageid = match.params.messageid;
 
 
 
@@ -51,7 +72,11 @@ class Map extends Component {
         <div className="map-infos">
           MAP 2
           <div className="title">{text()[lang].MAPS_INFO_TITLE}</div>
-          <MapAddressInput2 route={match.params} updateMapData={this.updateMapData} unit={' km'} />
+          <MapAddressInput2
+            message={this.state.message}
+            destination={this.state.destination}
+            origin={this.state.origin}
+            updateMapData={this.updateMapData} unit={' km'} />
           {/* <Share origin={this.state.origin} destination={this.state.destination} /> */}
         </div>
         <MapRender

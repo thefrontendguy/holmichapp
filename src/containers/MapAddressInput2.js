@@ -10,40 +10,43 @@ import Autocomplete from './Autocomplete';
 class MapAddressInput extends React.Component {
   state = {
     address: '',
-    destination: '',
+    originAddress: '',
+    destinationAddress: '',
     addressLatLng: '',
     destinationLatLng: '',
-    message: ''
+    message: 'Hi, I need a ride from point A to point B. Can you help? :-)',
+    messageReply: ''
   }
 
   render() {
+    var { message, origin, destination } = this.props;
     var lang = String(store.getState().lang.language);
     const weekdays = text()[lang].DAYS;
     const months = text()[lang].MONTHS;
 
-    console.log(this.props.route)
-
     return (
       <form className="map-address-input">
 
+        <div className="label">Message:</div>
+        <div className='text'>
+          {message}
+        </div>
+        <br />
+
         <div className="label">{text()[lang].FROM}</div>
         <div className='text'>
-          {this.props.route.originlat}
-          {this.props.route.originlng}
+          {origin}
         </div>
         <br />
 
         <div className="label">{text()[lang].DESTINATION}</div>
         <div className='text'>
-          {this.props.route.destinationlat}
-          {this.props.route.destinationlng}
+          {destination}
         </div>
         <br />
 
         <div className='label'>{text()[lang].PICKUP_DATE}</div>
         <div className='text'>
-          {this.props.route.reqdate}
-          {this.props.route.destinationlng}
         </div>
         <br />
 
@@ -52,8 +55,8 @@ class MapAddressInput extends React.Component {
           className='message'
           name='message'
           type='text'
-          onChange={e => this.setState({ message: e.target.value })}
-          value=''
+          onChange={e => this.setState({ messageReply: e.target.value })}
+          value={this.state.messageReply}
           size='30'
         />
 
