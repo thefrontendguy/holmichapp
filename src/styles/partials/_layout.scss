@@ -213,6 +213,9 @@ body {
       display: flex;
       flex-direction: column;
       
+      & .title {
+        text-align: center;        
+      }
       & > .label {
         text-align: center;
         margin: 7px 0 3px 0;
@@ -233,6 +236,21 @@ body {
       min-width: 100% !important;
       max-width: 100% !important;
       min-height: 125px;
+    }
+    
+    & .share-buttons {
+      display: flex;
+      justify-content: center;    
+      flex-wrap: wrap;
+      text-align: center;
+      & .title {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 0;
+      }
+      & .button {
+        padding: 5px;  
+      }
     }
   }
   & .map {
@@ -267,21 +285,6 @@ body {
       margin-bottom: 10px;
       border: 1px solid $col1;
     }
-  }
-}
-
-.share-buttons {
-  display: flex;
-  justify-content: center;    
-  flex-wrap: wrap;
-  text-align: center;
-  & .title {
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 0;
-  }
-  & .button {
-    padding: 5px;    
   }
 }
 
@@ -324,4 +327,111 @@ body {
       flex: initial;
     }
   }
+}
+
+.stepper {
+	display: flex;
+  flex-direction: column;
+  @include transition;
+	
+	& .row {
+		display: flex;
+		align-items: center;
+		flex: 1;
+
+    position: relative;
+    color: $col1;
+    cursor: pointer;
+
+    @include transition;
+    & div {
+      pointer-events: none;
+    }
+    
+    &:hover {
+      opacity: 1;
+      color: $col5;
+      & .list:before {
+        border-color: $col5;
+        border-width: 3px;
+      }
+    }
+		
+		&:before {
+			content: "";
+			width: 2px;
+			background: $col1;
+			position: absolute;
+			left: 24px;
+			height: 100%;
+		}
+		&:first-child:before {
+			top: 50%;
+			height: 50%;
+		}
+		&:last-child:before {
+			bottom: 50%;
+			height: 50%;
+		}
+		& .list {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 25px;
+			min-width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			border: 2px solid $col1;
+			background: white;
+			margin: 10px;	
+
+			position: relative;
+			z-index: 1;
+			
+			&:before {
+				content: "";
+				width: 5px;
+				height: 5px;
+				border-radius: 50%;
+        background: $col1;
+			}
+			&.done:before {
+
+			}
+		}
+		& .text {
+			padding: 0;
+    }
+    &.done {
+      color: $col5;
+      & .list:before {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				content: "";
+				width: 5px;
+				height: 10px;
+				border-color: $col5;
+				color: $col3;
+				border-style: solid;
+				border-width: 0px 3px 3px 0px;
+				transform: rotate(45deg) scale(1.1);
+				background: transparent;
+				border-radius: initial;
+        margin-top: -3px;
+        animation:  .4s stepDone linear forwards;
+      }
+      @keyframes stepDone {
+        from {
+          transform: rotate(45deg) scale(.2,.2);
+        }
+        85% {
+          transform: rotate(45deg) scale(1.1,1.1);
+        }
+        to {
+          transform: rotate(45deg) scale(1.1);
+        }
+      }
+    }
+	}
 }

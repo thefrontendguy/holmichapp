@@ -21,6 +21,11 @@ function translate(newString, newString2 = null, newString3 = null, newString4 =
             "PROFILE_GREETING": "Some greetings for the logged in user",
 
             "MAPS_INFO_TITLE": "Please add origin and destination addresses, to calculate the route",
+
+            "MAP_STEP_TITLE": "Only two steps left",
+            "MAP_STEP_1": "Calculate the Route",
+            "MAP_STEP_2": "Choose someone to ask",
+
             "FROM": "From",
             "FILL_FORM": "Please fill the form, to see distance and duration.",
             "DESTINATION": "Destination",
@@ -96,6 +101,11 @@ function translate(newString, newString2 = null, newString3 = null, newString4 =
             "PROFILE_GREETING": `Hallo ${newString}, geht es dir gut?`,
 
             "MAPS_INFO_TITLE": "Bitte gib den Startpunk und das Ziel deiner gewünschten Route an",
+
+            "MAP_STEP_TITLE": "In nur zwei Schritten zum Ziel",
+            "MAP_STEP_1": "Route auswählen",
+            "MAP_STEP_2": "Abholanfrage senden",
+
             "FROM": "Von",
             "FILL_FORM": "Bitte fülle die Felder aus, um die Entfernung und die Fahrtdauer anzuzeigen.",
             "DESTINATION": "Nach",

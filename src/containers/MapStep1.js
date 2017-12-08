@@ -8,13 +8,17 @@ import { Button, DatePicker, TimePicker } from '../components/InputElements';
 import Autocomplete from './Autocomplete';
 import axios from 'axios';
 
-class MapAddressInput extends React.Component {
-  state = {
-    address: '',
-    destination: '',
-    addressLatLng: '',
-    destinationLatLng: '',
-    message: ''
+export default class MapStep1 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      address: '',
+      destination: '',
+      addressLatLng: '',
+      destinationLatLng: '',
+      message: ''
+    }
+  
   }
   componentDidMount() {
     var lang = String(store.getState().lang.language);
@@ -107,7 +111,7 @@ class MapAddressInput extends React.Component {
           onChange={e => this.setState({ message: e.target.value })}
           value={this.state.message}
           size='30'
-        />
+        ></textarea>
 
         <div className='label'>{text()[lang].PICKUP_TITLE}</div>
         <div className='date-time-picker'>
@@ -115,27 +119,8 @@ class MapAddressInput extends React.Component {
           <DatePicker />
           <div className='label'>{text()[lang].PICKUP_TIME}</div>
           <TimePicker />
-        </div>
+        </div>        
       </form >
     )
   }
 }
-
-/* {(this.props.distAndDur !== null)
-          ? <div>
-            <p>
-              {text()[lang].DISTANCE} {this.props.distAndDur.routes[0].legs[0].distance.text.split(" ")[0] + this.props.unit}
-            </p>
-            <p>
-              {text()[lang].ESTIMATED_DURATION} {this.props.distAndDur.routes[0].legs[0].duration.text}
-            </p>
-          </div>
-          : <div>
-            <p>
-              <br />
-              {text()[lang].FILL_FORM}
-            </p>
-          </div>
-      } */
-
-export default MapAddressInput;
