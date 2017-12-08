@@ -44,11 +44,11 @@ app.use(function (req, res, next) {
 var port = process.env.PORT || 3001;
 app.set('port', port);
 
-// set up a static server
-app.use(express.static("build"));
-
 app.use("/user/", userRoutes);
 app.use("/message/", messageRoutes);
+
+// set up a static server
+app.use(express.static("build"));
 
 // set up error middleware
 /*app.use(function (req, res) {
