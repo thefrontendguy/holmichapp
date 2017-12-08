@@ -1,21 +1,56 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-import {
-    ShareButtons,
-    generateShareIcon
-} from 'react-share';
-
 import { store } from '../redux/store';
 import text from '../translate';
 
+import {
+    ShareButtons,
+    ShareCounts,
+    generateShareIcon
+} from 'react-share';
+
 const {
     FacebookShareButton,
+    GooglePlusShareButton,
     LinkedinShareButton,
     TwitterShareButton,
+    PinterestShareButton,
+    VKShareButton,
+    OKShareButton,
+    TelegramShareButton,
     WhatsappShareButton,
+    RedditShareButton,
     EmailShareButton,
+    TumblrShareButton,
+    LivejournalShareButton,
+    MailruShareButton,
   } = ShareButtons;
+  
+  const {
+    FacebookShareCount,
+    GooglePlusShareCount,
+    LinkedinShareCount,
+    PinterestShareCount,
+    VKShareCount,
+    OKShareCount,
+    RedditShareCount,
+    TumblrShareCount,
+  } = ShareCounts;
+  
+  const FacebookIcon = generateShareIcon('facebook');
+  const TwitterIcon = generateShareIcon('twitter');
+  const GooglePlusIcon = generateShareIcon('google');
+  const LinkedinIcon = generateShareIcon('linkedin');
+  const PinterestIcon = generateShareIcon('pinterest');
+  const VKIcon = generateShareIcon('vk');
+  const OKIcon = generateShareIcon('ok');
+  const TelegramIcon = generateShareIcon('telegram');
+  const WhatsappIcon = generateShareIcon('whatsapp');
+  const RedditIcon = generateShareIcon('reddit');
+  const TumblrIcon = generateShareIcon('tumblr');
+  const MailruIcon = generateShareIcon('mailru');
+  const EmailIcon = generateShareIcon('email');
+  const LivejournalIcon = generateShareIcon('livejournal');
 
 export default class Share extends Component {
     constructor(props) {
@@ -58,12 +93,6 @@ export default class Share extends Component {
         })
     }
     render() {
-        const FacebookIcon = generateShareIcon('facebook');
-        const TwitterIcon = generateShareIcon('twitter');
-        const WhatsappIcon = generateShareIcon('whatsapp');
-        const LinkedinIcon = generateShareIcon('linkedin');
-        const EmailIcon = generateShareIcon('email');
-
         //console.log(this.props)
         const { origin, destination, route } = this.props;
         var lang = String(store.getState().lang.language);
@@ -74,7 +103,7 @@ export default class Share extends Component {
         const message = text(origin, destination)[lang].ASK_SOCIAL_MESSAGE;
         return (
             <div className='share-buttons'>
-                <div className='title'>{title}</div>
+                 <div className='title'>{title}</div>
                 <div className='button'>
                     <WhatsappShareButton title={this.state.msgcontent} url={route.url} >
                         <WhatsappIcon size={32} round={isIconRound} />

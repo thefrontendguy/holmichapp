@@ -41,9 +41,11 @@ class Map extends Component {
       content: this.state.msgcontent,
       url: this.state.url
     };
+
     return (
       <div className="map-complete">
         <div className="map-infos">
+
 
           <div className="title">{text()[lang].MAP_STEP_TITLE}</div>
           <Stepper />

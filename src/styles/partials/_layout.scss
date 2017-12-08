@@ -237,6 +237,21 @@ body {
       max-width: 100% !important;
       min-height: 125px;
     }
+    
+    & .share-buttons {
+      display: flex;
+      justify-content: center;    
+      flex-wrap: wrap;
+      text-align: center;
+      & .title {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 0;
+      }
+      & .button {
+        padding: 5px;  
+      }
+    }
   }
   & .map {
     height: 100%;
@@ -270,21 +285,6 @@ body {
       margin-bottom: 10px;
       border: 1px solid $col1;
     }
-  }
-}
-
-.share-buttons {
-  display: flex;
-  justify-content: center;    
-  flex-wrap: wrap;
-  text-align: center;
-  & .title {
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 0;
-  }
-  & .button {
-    padding: 5px;    
   }
 }
 
