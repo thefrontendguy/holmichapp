@@ -48,7 +48,7 @@ app.use("/user/", userRoutes);
 app.use("/message/", messageRoutes);
 
 // set up a static server
-app.use("/", express.static("build"));
+app.use("*", express.static("build"));
 
 // set up error middleware
 /*app.use(function (req, res) {
