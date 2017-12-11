@@ -31,6 +31,10 @@ var schema = {
         destinationAddress: {
             type: String,
             required: false
+        },
+        accepted: {
+            type: Number,
+            required: false
         }
     }]
 }

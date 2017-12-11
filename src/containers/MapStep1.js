@@ -18,26 +18,31 @@ export default class MapStep1 extends React.Component {
       destinationLatLng: '',
       message: ''
     }
-  
+
   }
   componentDidMount() {
     var lang = String(store.getState().lang.language);
-    this.setState({ message: text()[lang].ASK_SOCIAL_MESSAGE });
+    this.setState({ message: text("Point A", "Point B")[lang].ASK_SOCIAL_MESSAGE });
   }
   getCoordinates = (address, latLng, direction) => {
+    var lang = String(store.getState().lang.language);
     if (direction === "origin") {
       store.dispatch(origin({ origin: address }));
       store.dispatch(originLatLng({ originLatLng: latLng }));
+      var destinationAddress = this.state.destination ? this.state.destination : "Point B";
       this.setState({
         origin: address,
         originLatLng: latLng,
+        message: text(address, destinationAddress)[lang].ASK_SOCIAL_MESSAGE
       });
     } else {
       store.dispatch(destination({ destination: address }));
       store.dispatch(destinationLatLng({ destinationLatLng: latLng }));
+      var originAddress = this.state.origin ? this.state.origin : "Point A";
       this.setState({
         destination: address,
         destinationLatLng: latLng,
+        message: text(originAddress, address)[lang].ASK_SOCIAL_MESSAGE
       });
     }
   }
@@ -119,7 +124,7 @@ export default class MapStep1 extends React.Component {
           <DatePicker />
           <div className='label'>{text()[lang].PICKUP_TIME}</div>
           <TimePicker />
-        </div>        
+        </div>
       </form >
     )
   }
