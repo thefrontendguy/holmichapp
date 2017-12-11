@@ -23,13 +23,15 @@ class Map extends Component {
     }
   }
   updateMapData = (origin, destination, originLatLng, destinationLatLng, reqdate, url, msgcontent) => {
-    this.setState({ origin: origin });
-    this.setState({ destination: destination });
-    this.setState({ originLatLng: originLatLng });
-    this.setState({ destinationLatLng: destinationLatLng });
-    this.setState({ reqdate: reqdate });
-    this.setState({ url: url });
-    this.setState({ msgcontent: msgcontent });
+    this.setState({
+      origin: origin,
+      destination: destination,
+      originLatLng: originLatLng,
+      destinationLatLng: destinationLatLng,
+      reqdate: reqdate,
+      url: url,
+      msgcontent: msgcontent
+    });
   }
   render() {
     /*console.log(this.state.origin)

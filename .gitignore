@@ -6,6 +6,9 @@
 # testing
 /coverage
 
+# production
+/build
+
 # keys
 /server/config/keys.js
 /server/config/connectionstring.js
