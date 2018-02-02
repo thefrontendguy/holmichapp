@@ -32,23 +32,23 @@ class Login extends React.Component {
         user.email = this.state.email;
         user.password = this.state.password;
         var requrl = window.location.hostname === "localhost" ?
-            "localhost:3001" : window.location.hostname;
-        axios.post(`https://${requrl}/user/login`, user)
+            "http://localhost:3001" : `https://${window.location.hostname}`;
+        axios.post(`${requrl}/user/login`, user)
             .then(res => {
-                console.log(res)
-                this.setState({ user: res.data, password: '' });
-                store.dispatch(email(
-                    {
+
+                this.setState({ user: res.data, password: '' }, () => {
+                    store.dispatch(email({
                         email: this.state.email
                     }))
-                store.dispatch(username(
-                    {
+                    store.dispatch(username({
                         username: this.state.user.username
                     }))
-                store.dispatch(isLoggedIn(
-                    {
+                    store.dispatch(isLoggedIn({
                         isLoggedIn: true
                     }))
+                }
+                );
+
 
             })
             .catch(error => console.log(error.response))
