@@ -33,7 +33,7 @@ class Login extends React.Component {
         user.password = this.state.password;
         var requrl = window.location.hostname === "localhost" ?
             "localhost:3001" : window.location.hostname;
-        axios.post(`http://${requrl}/user/login`, user)
+        axios.post(`https://${requrl}/user/login`, user)
             .then(res => {
                 console.log(res)
                 this.setState({ user: res.data, password: '' });

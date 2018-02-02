@@ -34,7 +34,7 @@ class Register extends React.Component {
         user.password = this.state.password;
         var requrl = window.location.hostname === "localhost" ?
             "localhost:3001" : window.location.hostname;
-        axios.post(`http://${requrl}/user/create`, user)
+        axios.post(`https://${requrl}/user/create`, user)
             .then(res => {
 
             })
