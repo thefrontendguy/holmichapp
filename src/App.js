@@ -19,7 +19,7 @@ import {
 
 class App extends React.Component {
     render() {
-        const isLoggedIn = store.getState().user.isLoggedIn;
+        const isLoggedIn = store.getState().user.isLoggedIn.isLoggedIn;
         return (
             <Router>
                 <div id='app'>

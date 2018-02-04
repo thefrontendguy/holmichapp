@@ -3,6 +3,7 @@ var app = express();
 var userRoutes = require("./users");
 var messageRoutes = require("./messages");
 var compress = require("compression");
+var path = require('path');
 //var secret = process.env.sessionsecret || require("./config/keys").sessionsecret;
 app.use(compress());
 
@@ -44,11 +45,16 @@ app.use(function (req, res, next) {
 var port = process.env.PORT || 3001;
 app.set('port', port);
 
+app.use("/user/", userRoutes);
+app.use("/message/", messageRoutes);
+
 // set up a static server
 app.use(express.static("build"));
 
-app.use("/user/", userRoutes);
-app.use("/message/", messageRoutes);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+});
 
 // set up error middleware
 /*app.use(function (req, res) {

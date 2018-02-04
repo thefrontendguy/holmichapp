@@ -6,10 +6,11 @@ import text from '../translate';
 class Home extends React.Component {
     render() {
         var lang = String(store.getState().lang.language);
-
+        var username = store.getState().user.username.username;
+        username = username ? username : 'Guest user';
         return (
             <div className='home content'>
-                <h1> {text('You')[lang].GREETING}</h1>
+                <h1> {text(username)[lang].GREETING}</h1>
             </div>
         )
     }

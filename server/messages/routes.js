@@ -63,4 +63,15 @@ router.post("/:id/send", (req, res) => {
     })
 })
 
+router.post("/:id/respond", (req, res) => {
+    Conversation.update({ _id: req.params.id }, { accepted: req.body.accepted }, (err, convo) => {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(convo);
+        }
+    })
+
+})
+
 module.exports = router;

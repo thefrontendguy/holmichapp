@@ -18,7 +18,7 @@ class MainLayout extends React.Component {
     }
     render() {
         var lang = String(store.getState().lang.language);
-        const isLoggedIn = store.getState().user.isLoggedIn;
+        var isLoggedIn = store.getState().user.isLoggedIn.isLoggedIn;
         return (
             <div className='header'>
                 <NavLink to='/' className='appname'>
@@ -34,7 +34,8 @@ class MainLayout extends React.Component {
                 <div className='links'>
                     {isLoggedIn
                         ? <div>
-                            <NavLink to='/route' className='route'>{text()[lang].ROUTE}</NavLink><NavLink to='/profile' className='profile'>{text()[lang].PROFILE}</NavLink>
+                            <NavLink to='/route' className='route'>{text()[lang].ROUTE}</NavLink>
+                            <NavLink to='/profile' className='profile'>{text()[lang].PROFILE}</NavLink>
                         </div>
                         : <div>
                             <NavLink to='/route' className='route'>{text()[lang].ROUTE}</NavLink>

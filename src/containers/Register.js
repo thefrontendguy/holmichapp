@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Redirect, Link } from "react-router-dom";
 
 import { store } from '../redux/store';
+import { email, username, isLoggedIn } from '../redux/actions';
 import text from '../translate';
 
 import { Button } from '../components/InputElements';
@@ -33,10 +34,20 @@ class Register extends React.Component {
         user.email = this.state.email;
         user.password = this.state.password;
         var requrl = window.location.hostname === "localhost" ?
-            "localhost:3001" : window.location.hostname;
-        axios.post(`http://${requrl}/user/create`, user)
+            "http://localhost:3001" : `https://${window.location.hostname}`;
+        axios.post(`${requrl}/user/create`, user)
             .then(res => {
-
+                this.setState({ user: res.data, password: '' }, () => {
+                    store.dispatch(email({
+                        email: this.state.user.email
+                    }))
+                    store.dispatch(username({
+                        username: this.state.user.username
+                    }))
+                    store.dispatch(isLoggedIn({
+                        isLoggedIn: true
+                    }))
+                });
             })
             .catch(error => console.log(error.response))
     }
@@ -45,8 +56,7 @@ class Register extends React.Component {
         var lang = String(store.getState().lang.language);
         return (
             <div className='content login-form'>
-
-                {this.state.user === null ? '' : <Redirect push to="/login" user={this.state.user} />}
+                {this.state.user === null ? '' : <Redirect push to="/profile" user={this.state.user} />}
                 <form>
                     <h1>{text()[lang].REGISTER_FORM_TITLE}</h1>
 
