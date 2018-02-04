@@ -1,7 +1,6 @@
 import React from 'react';
 import { store } from '../redux/store';
 import { email, username, isLoggedIn } from '../redux/actions';
-import { Redirect } from "react-router-dom";
 
 import text from '../translate';
 
@@ -27,7 +26,6 @@ class Profile extends React.Component {
         var username = store.getState().user.username.username;
         var isLoggedIn = store.getState().user.isLoggedIn;
         var lang = String(store.getState().lang.language);
-        console.log(isLoggedIn);
         return (
             <div className='profile content'>
                 <h1>

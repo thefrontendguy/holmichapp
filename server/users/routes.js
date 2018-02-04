@@ -22,6 +22,7 @@ router.get("/:id", (req, res) => {
         if (err) {
             res.status(500).json(err);
         } else {
+            user.password = undefined;
             res.status(200).json(user);
         }
     })
@@ -76,7 +77,7 @@ router.post("/login", (req, res) => {
             if (user) {
                 bcrypt.compare(password, user.password)
                     .then((result) => {
-                        if (result) res.status(200).json(user);
+                        if (result) { user.password = undefined; res.status(200).json(user); }
                         else res.status(404).json({ status: "email/password combo not found" });
                     })
                     .catch(err => res.status(500).json(err))
